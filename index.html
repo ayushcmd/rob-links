@@ -234,16 +234,17 @@
             <label for="catalogSortSelect" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Sort By</label>
             <select id="catalogSortSelect" class="catalog-select" aria-label="Sort catalog games">
               <option value="featured">Featured First</option>
-              <option value="rating">Highest Rated</option>
-              <option value="az">A–Z (Alphabetical)</option>
-              <option value="newest">Recently Added</option>
+              <option value="az">Name (A–Z)</option>
+              <option value="za">Name (Z–A)</option>
+              <option value="availability">Playable First</option>
+              <option value="platform">By Platform</option>
             </select>
           </div>
         </div>
 
         <!-- Result Metadata Bar -->
         <div class="catalog-meta-bar">
-          <span class="catalog-result-count" id="catalogResultCount">Showing 12 games</span>
+          <span class="catalog-result-count" id="catalogResultCount">Showing 36 games</span>
         </div>
 
         <!-- Complete Games Catalog Grid -->
@@ -277,12 +278,12 @@
         <div class="about-intro">
           <h2 id="aboutHeading" class="section-title">About Rob-Links</h2>
           <p class="about-description">
-            Rob-Links is a simple gaming discovery hub built to help players explore browser games and jump directly into their favorite demos.
+            Rob-Links is an independent gaming discovery directory that helps players explore browser games, classic WebAssembly ports, and external game projects.
           </p>
         </div>
 
         <div class="about-grid">
-          <!-- Card 1: Discover -->
+          <!-- Card 1: External Directory -->
           <div class="about-card">
             <div class="about-card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -290,22 +291,22 @@
                 <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
               </svg>
             </div>
-            <h3 class="about-card-title">1. Discover</h3>
-            <p class="about-card-text">Explore games across different genres.</p>
+            <h3 class="about-card-title">1. Curated Directory</h3>
+            <p class="about-card-text">We catalog and test external browser games, WebAssembly ports, and open source gaming initiatives.</p>
           </div>
 
-          <!-- Card 2: Play -->
+          <!-- Card 2: Safe External Launch -->
           <div class="about-card">
             <div class="about-card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
               </svg>
             </div>
-            <h3 class="about-card-title">2. Play</h3>
-            <p class="about-card-text">Open supported browser demos directly.</p>
+            <h3 class="about-card-title">2. Direct Navigation</h3>
+            <p class="about-card-text">Every game launches directly to its verified external destination in a safe new browser tab.</p>
           </div>
 
-          <!-- Card 3: Explore More -->
+          <!-- Card 3: Clear Availability -->
           <div class="about-card">
             <div class="about-card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -314,13 +315,13 @@
                 <line x1="12" y1="17" x2="12" y2="21"></line>
               </svg>
             </div>
-            <h3 class="about-card-title">3. Explore More</h3>
-            <p class="about-card-text">Find new experiences through a simple gaming directory.</p>
+            <h3 class="about-card-title">3. Transparent Status</h3>
+            <p class="about-card-text">Games are labeled clearly as Browser Game, Project Page, or Files Required so you always know what to expect.</p>
           </div>
         </div>
 
         <div class="about-disclaimer-box" role="note">
-          <p>Rob-Links is an independent gaming directory and is not affiliated with Roblox Corporation.</p>
+          <p><strong>Disclaimer:</strong> Rob-Links does not host game files or claim ownership of any listed games. All titles, trademarks, and assets belong to their respective developers and publishers. Games with "Files Required" require original game assets owned by the player.</p>
         </div>
       </div>
     </section>
@@ -338,7 +339,7 @@
             <img src="assets/images/logo.svg" alt="ROB-LINKS" width="160" height="38">
           </a>
           <p class="footer-desc">
-            A fast, modern browser gaming directory connecting players with independent game demos across every genre.
+            A fast, modern browser gaming directory connecting players with 36 independent browser games, classic ports, and external gaming projects.
           </p>
         </div>
 
@@ -364,7 +365,7 @@
           &copy; 2026 Rob-Links. Independent gaming directory.
         </p>
         <p class="footer-legal">
-          Game names and descriptions are provided for discovery purposes. Rob-Links is not affiliated with Roblox Corporation or the developers of listed games.
+          Game names, trademarks, and artwork are provided for discovery and navigational reference only. Rob-Links is not affiliated with Roblox Corporation or external game creators.
         </p>
       </div>
     </div>
@@ -378,31 +379,67 @@
   </button>
 
   <!-- ======================================================================
-       9. Unconfigured Demo Dialog (Accessible Modal)
+       9. Game Details Modal Dialog
        ====================================================================== -->
-  <div class="modal-overlay" id="unconfiguredModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalGameTitle">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-card">
-      <div class="modal-icon-badge" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="8" x2="12" y2="12"></line>
-          <line x1="12" y1="16" x2="12.01" y2="16"></line>
-        </svg>
-      </div>
-      <h3 class="modal-title" id="modalGameTitle">Demo Coming Soon</h3>
-      <p class="modal-desc" id="modalGameDesc">
-        The external demo link for this game has not been configured yet. To play, configure a valid HTTPS URL in assets/js/app.js.
-      </p>
-      <div class="modal-actions">
-        <button type="button" class="btn btn-primary" id="modalCloseBtn">
-          <span>Got it</span>
+  <div class="modal-overlay" id="gameDetailsModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="detailsModalTitle">
+    <div class="modal-backdrop" id="detailsModalBackdrop"></div>
+    <div class="modal-details-card">
+      <div class="modal-details-header">
+        <div id="detailsModalMedia"></div>
+        <div class="modal-header-gradient"></div>
+        <button type="button" class="btn-modal-close-icon" id="detailsModalCloseBtn" aria-label="Close game details modal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
+      </div>
+
+      <div class="modal-details-body">
+        <div class="modal-top-row">
+          <h2 class="modal-title" id="detailsModalTitle">Game Title</h2>
+          <div id="detailsModalStatusBadge"></div>
+        </div>
+
+        <div class="modal-genres-wrap" id="detailsModalGenres"></div>
+
+        <p class="modal-description-text" id="detailsModalDescription">Detailed game description.</p>
+
+        <div class="modal-specs-grid">
+          <div class="modal-spec-item">
+            <span class="modal-spec-label">Platform / Engine</span>
+            <span class="modal-spec-val" id="detailsModalPlatform">WebAssembly / WebGL</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="modal-spec-label">Requirements</span>
+            <span class="modal-spec-val" id="detailsModalRequirements">Keyboard &amp; mouse lock supported.</span>
+          </div>
+        </div>
+
+        <div class="modal-footer-action-row">
+          <div class="modal-external-notice" id="detailsModalExternalNotice">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>Opens external game destination in a new tab.</span>
+          </div>
+          <button type="button" class="btn-modal-launch" id="detailsModalLaunchBtn">
+            <span>PLAY NOW</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Application Script (Relative Path) -->
+  <!-- Scripts (Single Source of Truth + App Logic) -->
+  <script src="assets/js/games-data.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

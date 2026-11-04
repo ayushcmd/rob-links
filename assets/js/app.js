@@ -1,194 +1,29 @@
 /**
- * ROB-LINKS — Central Game Configuration & Application Script
+ * ROB-LINKS — Gaming Discovery Platform Application Logic
  * 
- * A Roblox-inspired game discovery and navigation platform.
- * Configure your games below. When a game has a valid HTTPS URL,
- * clicking Play will safely navigate to that destination.
+ * Powered by a central 36-game catalog. Provides instant search, multi-genre filtering,
+ * modal details views, and safe external navigation.
  */
 
 // ============================================================================
-// 1. GAME CONFIGURATION
+// 1. GLOBAL STATE & CONFIGURATION
 // ============================================================================
 
-/**
- * Global configuration settings
- */
 const CONFIG = {
-  // Set to true only if you explicitly need to support unencrypted http:// game demos
   allowHttp: false,
-  // Fallback image path if a game thumbnail fails to load
   defaultThumbnail: "assets/images/games/placeholder.svg"
 };
 
-/**
- * Central Game Catalog
- * Add or edit your games in this single array.
- * 
- * Schema:
- * {
- *   id: string,              // Unique identifier (slug)
- *   title: string,           // Display name of game
- *   category: string,        // Genre / Category
- *   rating: number|null,     // Community rating (0 - 100)
- *   image: string,           // Relative path to local SVG/image asset
- *   description: string,     // Short description for cards and search
- *   url: string,             // Target external game URL (e.g. "https://your-game.example")
- *   featured: boolean,       // Show in Featured section
- *   trending: boolean        // Show in Trending section
- * }
- */
-const GAMES = [
-  {
-    id: "blox-horror",
-    title: "Blox Horror",
-    category: "Horror",
-    rating: 94,
-    image: "assets/images/games/blox-horror.svg",
-    description: "Survive the shifting corridors of an abandoned facility in this intense psychological horror experience.",
-    url: "",
-    featured: true,
-    trending: false
-  },
-  {
-    id: "pixel-shooter",
-    title: "Pixel Shooter",
-    category: "Shooter",
-    rating: 91,
-    image: "assets/images/games/pixel-shooter.svg",
-    description: "Fast-paced tactical retro shooter with intense combat, custom loadouts, and precision gunplay.",
-    url: "",
-    featured: true,
-    trending: false
-  },
-  {
-    id: "zombie-survival",
-    title: "Zombie Survival",
-    category: "Survival",
-    rating: 92,
-    image: "assets/images/games/zombie-survival.svg",
-    description: "Scavenge resources, fortify shelters, and withstand relentless undead hordes under the toxic moon.",
-    url: "",
-    featured: true,
-    trending: false
-  },
-  {
-    id: "doors",
-    title: "Doors",
-    category: "Horror",
-    rating: 93,
-    image: "assets/images/games/doors.svg",
-    description: "Navigate through 100 mysterious hotel rooms while outwitting terrifying entities lurking in shadows.",
-    url: "",
-    featured: false,
-    trending: true
-  },
-  {
-    id: "home-alone",
-    title: "Home Alone: Anomalies",
-    category: "Horror",
-    rating: 94,
-    image: "assets/images/games/home-alone.svg",
-    description: "Inspect surveillance monitors and report bizarre paranormal anomalies before morning arrives.",
-    url: "",
-    featured: false,
-    trending: true
-  },
-  {
-    id: "untitled-rpg",
-    title: "Untitled RPG",
-    category: "Adventure",
-    rating: 89,
-    image: "assets/images/games/untitled-rpg.svg",
-    description: "Embark on an epic fantasy quest across floating islands, forge gear, and conquer ancient dungeons.",
-    url: "",
-    featured: false,
-    trending: true
-  },
-  {
-    id: "last-stop",
-    title: "Last Stop",
-    category: "Survival",
-    rating: 97,
-    image: "assets/images/games/last-stop.svg",
-    description: "An eerie survival challenge trapped in a forgotten underground subway network after midnight.",
-    url: "",
-    featured: false,
-    trending: true
-  },
-  {
-    id: "retro-racer",
-    title: "Retro Racer",
-    category: "Racing",
-    rating: 90,
-    image: "assets/images/games/retro-racer.svg",
-    description: "Drift along neon highways to synthwave beats with ultra-smooth retro arcade car physics.",
-    url: "",
-    featured: false,
-    trending: false
-  },
-  {
-    id: "puzzle-lab",
-    title: "Puzzle Lab",
-    category: "Puzzle",
-    rating: 88,
-    image: "assets/images/games/puzzle-lab.svg",
-    description: "Test your intellect across quantum laser chambers, gravity switches, and spatial anomalies.",
-    url: "",
-    featured: false,
-    trending: false
-  },
-  {
-    id: "sandbox-world",
-    title: "Sandbox World",
-    category: "Sandbox",
-    rating: 95,
-    image: "assets/images/games/sandbox-world.svg",
-    description: "Construct limitless voxel creations, mine rare minerals, and explore infinite procedural realms.",
-    url: "",
-    featured: false,
-    trending: false
-  },
-  {
-    id: "sports-arena",
-    title: "Sports Arena",
-    category: "Sports",
-    rating: 86,
-    image: "assets/images/games/sports-arena.svg",
-    description: "High-octane stadium sports tournament with physics-based balls and electric crowd atmospheres.",
-    url: "",
-    featured: false,
-    trending: false
-  },
-  {
-    id: "arcade-rush",
-    title: "Arcade Rush",
-    category: "Arcade",
-    rating: 92,
-    image: "assets/images/games/arcade-rush.svg",
-    description: "Relive golden era 80s coin-op action with score-chasing challenges, retro art, and bullet chaos.",
-    url: "",
-    featured: false,
-    trending: false
-  }
-];
-
-// Available Genres list for the filter bars
-const GENRES = [
-  "All Games",
-  "Horror",
-  "Shooter",
-  "Adventure",
-  "Racing",
-  "Survival",
-  "Puzzle",
-  "Sandbox",
-  "Sports",
-  "Multiplayer",
-  "Arcade"
-];
+// Application State
+const state = {
+  searchQuery: "",
+  activeGenre: "All Games",
+  sortBy: "featured",
+  selectedGameId: null
+};
 
 // ============================================================================
-// 2. DOM REFERENCES
+// 2. DOM ELEMENT REFERENCES
 // ============================================================================
 
 const DOM = {
@@ -196,48 +31,60 @@ const DOM = {
   navLinks: document.querySelectorAll(".nav-link"),
   mobileMenuBtn: document.getElementById("mobileMenuBtn"),
   mobileNav: document.getElementById("mobileNav"),
-  
+
   featuredGrid: document.getElementById("featuredGrid"),
   trendingGrid: document.getElementById("trendingGrid"),
   catalogGrid: document.getElementById("catalogGrid"),
-  
+
   searchInput: document.getElementById("gameSearch"),
   clearSearchBtn: document.getElementById("clearSearchBtn"),
   genreFilterContainer: document.getElementById("genreFilterContainer"),
   catalogGenreSelect: document.getElementById("catalogGenreSelect"),
   sortSelect: document.getElementById("catalogSortSelect"),
   catalogResultCount: document.getElementById("catalogResultCount"),
-  
+
   emptyState: document.getElementById("catalogEmptyState"),
   resetFiltersBtn: document.getElementById("resetFiltersBtn"),
-  
-  backToTopBtn: document.getElementById("backToTopBtn"),
-  
-  // Notification Modal for unconfigured / status messages
-  modal: document.getElementById("unconfiguredModal"),
-  modalTitle: document.getElementById("modalGameTitle"),
-  modalCloseBtn: document.getElementById("modalCloseBtn"),
-  modalBackdrop: document.getElementById("modalBackdrop")
-};
 
-// Application state for directory filtering
-const state = {
-  searchQuery: "",
-  activeGenre: "All Games",
-  sortBy: "featured" // "featured" | "rating" | "az" | "newest"
+  backToTopBtn: document.getElementById("backToTopBtn"),
+
+  // Game Details Modal
+  modal: document.getElementById("gameDetailsModal"),
+  modalBackdrop: document.getElementById("detailsModalBackdrop"),
+  modalCloseBtn: document.getElementById("detailsModalCloseBtn"),
+  modalMedia: document.getElementById("detailsModalMedia"),
+  modalTitle: document.getElementById("detailsModalTitle"),
+  modalGenres: document.getElementById("detailsModalGenres"),
+  modalStatusBadge: document.getElementById("detailsModalStatusBadge"),
+  modalDescription: document.getElementById("detailsModalDescription"),
+  modalPlatform: document.getElementById("detailsModalPlatform"),
+  modalRequirements: document.getElementById("detailsModalRequirements"),
+  modalExternalNotice: document.getElementById("detailsModalExternalNotice"),
+  modalLaunchBtn: document.getElementById("detailsModalLaunchBtn")
 };
 
 // ============================================================================
-// 3. URL VALIDATION & SECURITY
+// 3. HELPERS & UTILITIES
 // ============================================================================
 
 /**
- * Validates external destination URLs.
- * Strictly permits HTTPS by default. HTTP is only permitted if CONFIG.allowHttp === true.
- * Rejects javascript:, data:, file:, blob:, and invalid URLs.
- * 
- * @param {string} url - URL string to inspect
- * @returns {boolean} True if the URL is valid and permitted
+ * Access all games from central data
+ */
+function getGames() {
+  return typeof GAMES_DATA !== "undefined" ? GAMES_DATA : [];
+}
+
+/**
+ * Find game by unique ID
+ */
+function getGameById(id) {
+  if (!id) return null;
+  return getGames().find(g => g.id === id) || null;
+}
+
+/**
+ * Validates destination URLs.
+ * Strictly permits HTTPS by default. Rejects unsafe schemes.
  */
 function isValidGameUrl(url) {
   if (!url || typeof url !== "string") return false;
@@ -246,57 +93,16 @@ function isValidGameUrl(url) {
 
   try {
     const parsed = new URL(trimmed);
-    if (parsed.protocol === "https:") {
-      return true;
-    }
-    if (CONFIG.allowHttp && parsed.protocol === "http:") {
-      return true;
-    }
+    if (parsed.protocol === "https:") return true;
+    if (CONFIG.allowHttp && parsed.protocol === "http:") return true;
     return false;
   } catch (e) {
     return false;
   }
 }
 
-// ============================================================================
-// 4. GAME HELPERS
-// ============================================================================
-
 /**
- * Find a game by its unique ID
- * @param {string} id - The unique game identifier
- * @returns {object|undefined} The game object or undefined
- */
-function getGameById(id) {
-  if (!id) return undefined;
-  return GAMES.find(g => g.id === id);
-}
-
-/**
- * Safely extract the external destination URL for a game
- * @param {object} game - The game object
- * @returns {string} Trimmed URL or empty string
- */
-function getGameUrl(game) {
-  if (!game || !game.url || typeof game.url !== "string") return "";
-  return game.url.trim();
-}
-
-/**
- * Check whether a game has a verified, executable external URL configured
- * @param {object} game - The game object
- * @returns {boolean}
- */
-function isGameConfigured(game) {
-  if (!game) return false;
-  const url = getGameUrl(game);
-  return isValidGameUrl(url);
-}
-
-/**
- * Escape HTML to prevent injection when rendering text
- * @param {string} str - Raw string
- * @returns {string} Sanitized string
+ * Safe HTML escaping
  */
 function escapeHtml(str) {
   if (!str) return "";
@@ -308,116 +114,122 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
-// ============================================================================
-// 5. GAME LAUNCH & INTERACTION
-// ============================================================================
+/**
+ * Creates dynamic SVG data URI fallback matching game category and title
+ */
+function getFallbackSvgUri(title, category) {
+  const safeTitle = escapeHtml(title || "Game");
+  const safeCat = escapeHtml(category || "Browser Game");
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#1a2333"/>
+        <stop offset="100%" stop-color="#0a0f18"/>
+      </linearGradient>
+    </defs>
+    <rect width="640" height="360" fill="url(#bg)"/>
+    <circle cx="320" cy="180" r="160" fill="#335fff" fill-opacity="0.15"/>
+    <rect x="30" y="30" width="580" height="300" rx="12" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+    <g transform="translate(320, 150)">
+      <circle cx="0" cy="0" r="38" fill="#141c2b" stroke="#335fff" stroke-width="2"/>
+      <polygon points="-8,-12 14,0 -8,12" fill="#38bdf8"/>
+    </g>
+    <text x="320" y="235" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="20" fill="#ffffff" text-anchor="middle">${safeTitle}</text>
+    <text x="320" y="265" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" fill="#60a5fa" text-anchor="middle" letter-spacing="1.5">${safeCat}</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
 
 /**
- * Handles launching or notifying about a game
- * @param {string} gameId - Unique ID of game
+ * Status badge markup based on availability
  */
-function handleGameLaunch(gameId) {
-  const game = getGameById(gameId);
-  if (!game) {
-    showModal("Game Not Found", "The requested game entry could not be located in the catalog.");
-    return;
+function getAvailabilityBadgeMarkup(availability, label) {
+  const safeLabel = escapeHtml(label || "External Game");
+  let badgeClass = "badge-project";
+  let icon = "◆";
+
+  switch (availability) {
+    case "browser":
+      badgeClass = "badge-browser";
+      icon = "●";
+      break;
+    case "demo":
+      badgeClass = "badge-demo";
+      icon = "■";
+      break;
+    case "files-required":
+      badgeClass = "badge-files";
+      icon = "▲";
+      break;
+    case "unavailable":
+      badgeClass = "badge-unavailable";
+      icon = "✕";
+      break;
+    default:
+      badgeClass = "badge-project";
+      icon = "◆";
   }
 
-  if (isGameConfigured(game)) {
-    const validUrl = getGameUrl(game);
-    // Safe browser navigation using window.location.assign
-    window.location.assign(validUrl);
-  } else {
-    // Show friendly, Roblox-styled notification without navigating
-    const message = `The external demo link for "${game.title}" has not been configured yet. To play, configure a valid HTTPS URL in assets/js/app.js.`;
-    showModal(game.title, message);
-  }
-}
-
-/**
- * Opens the accessible notification dialog
- * @param {string} title - Heading
- * @param {string} message - Explanatory body text
- */
-function showModal(title, message) {
-  if (!DOM.modal) return;
-  if (DOM.modalTitle) DOM.modalTitle.textContent = title;
-  const descEl = document.getElementById("modalGameDesc");
-  if (descEl) descEl.textContent = message;
-
-  DOM.modal.classList.add("is-visible");
-  DOM.modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-  if (DOM.modalCloseBtn) DOM.modalCloseBtn.focus();
-}
-
-/**
- * Closes the notification dialog
- */
-function closeModal() {
-  if (!DOM.modal) return;
-  DOM.modal.classList.remove("is-visible");
-  DOM.modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
+  return `<span class="availability-badge ${badgeClass}"><span class="badge-icon">${icon}</span>${safeLabel}</span>`;
 }
 
 // ============================================================================
-// 6. CARD RENDERING
+// 4. RENDERING FUNCTIONS
 // ============================================================================
 
 /**
- * Creates HTML markup for a standard game card
- * @param {object} game - The game object
- * @param {object} options - Optional rendering flags (e.g. badge)
- * @returns {string} HTML string
+ * Creates HTML markup for an individual game card
  */
-function createGameCardHtml(game, options = {}) {
-  const isConfigured = isGameConfigured(game);
-  const ratingText = typeof game.rating === "number" ? `${game.rating}%` : "Unrated";
-  const imageSrc = game.image || CONFIG.defaultThumbnail;
+function createGameCardHtml(game) {
+  const safeId = escapeHtml(game.id);
   const safeTitle = escapeHtml(game.title);
-  const safeCategory = escapeHtml(game.category);
   const safeDesc = escapeHtml(game.description || "");
-  const cardBadge = isConfigured 
-    ? `<span class="card-status-badge is-live" title="External link verified"><span class="status-dot"></span>Playable</span>`
-    : `<span class="card-status-badge is-pending" title="Demo link not configured yet"><span class="status-dot"></span>Demo Soon</span>`;
+  const safeImg = escapeHtml(game.image || CONFIG.defaultThumbnail);
+  const safeButtonText = escapeHtml(game.buttonText || "PLAY NOW");
+  const fallbackUri = getFallbackSvgUri(game.title, game.category);
+  const statusBadge = getAvailabilityBadgeMarkup(game.availability, game.availabilityLabel);
+
+  // Genre pills (first 2)
+  const genresList = Array.isArray(game.genres) ? game.genres : [game.category || "Game"];
+  const genreTags = genresList.slice(0, 2).map(g => `<span class="card-genre-tag">${escapeHtml(g)}</span>`).join("");
+
+  const isBrowserPlay = game.availability === "browser" || game.availability === "demo";
+  const btnClass = isBrowserPlay ? "btn-play-action" : "btn-project-action";
 
   return `
-    <article class="game-card ${isConfigured ? 'is-configured' : 'is-unconfigured'}" data-game-id="${escapeHtml(game.id)}">
+    <article class="game-card" data-game-id="${safeId}">
       <div class="card-media">
         <img 
-          src="${escapeHtml(imageSrc)}" 
-          alt="${safeTitle} thumbnail" 
+          src="${safeImg}" 
+          alt="${safeTitle} Artwork" 
           loading="lazy" 
           class="card-img"
-          onerror="this.onerror=null; this.src='${CONFIG.defaultThumbnail}';"
+          onerror="this.onerror=null; this.src='${fallbackUri}';"
         />
         <div class="card-media-overlay"></div>
-        ${cardBadge}
+        <div class="card-media-badge-wrap">
+          ${statusBadge}
+        </div>
       </div>
       <div class="card-content">
         <div class="card-meta">
-          <span class="card-category">${safeCategory}</span>
-          <span class="card-rating" title="Player Rating: ${ratingText}">
-            <svg class="star-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor">
-              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-            </svg>
-            ${ratingText}
-          </span>
+          <div class="card-genres">${genreTags}</div>
+          <span class="card-platform" title="Platform Engine">${escapeHtml(game.platform || "Web")}</span>
         </div>
         <h3 class="card-title">${safeTitle}</h3>
         <p class="card-description">${safeDesc}</p>
         <div class="card-actions">
           <button 
             type="button" 
-            class="btn-play ${isConfigured ? 'btn-play-primary' : 'btn-play-unconfigured'}" 
-            data-launch-id="${escapeHtml(game.id)}"
-            aria-label="${isConfigured ? 'Play ' + safeTitle : safeTitle + ' (Link not configured)'}"
+            class="btn-card-action ${btnClass}" 
+            data-launch-id="${safeId}"
+            aria-label="${safeButtonText} for ${safeTitle}"
           >
-            <svg class="play-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor">
-              <path d="M8 5v14l11-7z"/>
+            <span>${safeButtonText}</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
             </svg>
-            <span>${isConfigured ? 'Play' : 'Demo Soon'}</span>
           </button>
         </div>
       </div>
@@ -426,25 +238,27 @@ function createGameCardHtml(game, options = {}) {
 }
 
 /**
- * Render Featured Games section (3 cards)
+ * Render Featured Games section (Curated verified collection)
  */
 function renderFeaturedGames() {
   if (!DOM.featuredGrid) return;
-  const featured = GAMES.filter(g => g.featured);
+  const games = getGames();
+  const featured = games.filter(g => g.featured);
   DOM.featuredGrid.innerHTML = featured.map(g => createGameCardHtml(g)).join("");
 }
 
 /**
- * Render Trending Games section (4 cards)
+ * Render Trending Games section
  */
 function renderTrendingGames() {
   if (!DOM.trendingGrid) return;
-  const trending = GAMES.filter(g => g.trending);
+  const games = getGames();
+  const trending = games.filter(g => g.trending);
   DOM.trendingGrid.innerHTML = trending.map(g => createGameCardHtml(g)).join("");
 }
 
 /**
- * Render Main Game Catalog based on current search, genre, and sort state
+ * Render Main Games Directory Catalog
  */
 function renderGameCatalog() {
   if (!DOM.catalogGrid) return;
@@ -452,9 +266,10 @@ function renderGameCatalog() {
   const filtered = filterGames();
   const sorted = sortGames(filtered);
 
-  // Update counter
+  // Update count label
   if (DOM.catalogResultCount) {
-    DOM.catalogResultCount.textContent = `Showing ${sorted.length} ${sorted.length === 1 ? 'game' : 'games'}`;
+    const total = getGames().length;
+    DOM.catalogResultCount.textContent = `Showing ${sorted.length} of ${total} games`;
   }
 
   // Handle empty state
@@ -465,9 +280,9 @@ function renderGameCatalog() {
       const emptyDesc = DOM.emptyState.querySelector(".empty-subtitle");
       if (emptyDesc) {
         if (state.searchQuery.trim()) {
-          emptyDesc.textContent = `No games matched "${state.searchQuery}". Try another keyword or reset filters.`;
+          emptyDesc.textContent = `No games matched "${state.searchQuery}". Try another keyword or genre filter.`;
         } else {
-          emptyDesc.textContent = `No games found in category "${state.activeGenre}". Try selecting a different genre.`;
+          emptyDesc.textContent = `No games found in genre "${state.activeGenre}". Try selecting All Games.`;
         }
       }
     }
@@ -482,63 +297,71 @@ function renderGameCatalog() {
 }
 
 // ============================================================================
-// 7. FILTERING, SEARCHING & SORTING
+// 5. FILTERING, SEARCHING & SORTING
 // ============================================================================
 
 /**
- * Filters the catalog by search keyword and category
- * @returns {Array} Filtered list of games (cloned)
+ * Filters the catalog by search keywords and selected genre
  */
 function filterGames() {
   const query = state.searchQuery.trim().toLowerCase();
   const selectedGenre = state.activeGenre;
+  const games = getGames();
 
-  return GAMES.filter(game => {
-    // 1. Genre filter check
-    const matchesGenre = (selectedGenre === "All Games") ||
-      (game.category && game.category.toLowerCase() === selectedGenre.toLowerCase());
+  return games.filter(game => {
+    // 1. Genre filter
+    if (selectedGenre !== "All Games") {
+      const matchCategory = game.category && game.category.toLowerCase() === selectedGenre.toLowerCase();
+      const matchGenres = Array.isArray(game.genres) && game.genres.some(g => g.toLowerCase() === selectedGenre.toLowerCase());
+      if (!matchCategory && !matchGenres) return false;
+    }
 
-    if (!matchesGenre) return false;
-
-    // 2. Search query check
+    // 2. Search query filter
     if (!query) return true;
 
     const titleMatch = game.title && game.title.toLowerCase().includes(query);
     const catMatch = game.category && game.category.toLowerCase().includes(query);
     const descMatch = game.description && game.description.toLowerCase().includes(query);
+    const platMatch = game.platform && game.platform.toLowerCase().includes(query);
+    const genreMatch = Array.isArray(game.genres) && game.genres.some(g => g.toLowerCase().includes(query));
+    const keywordMatch = Array.isArray(game.keywords) && game.keywords.some(k => k.toLowerCase().includes(query));
 
-    return titleMatch || catMatch || descMatch;
+    return titleMatch || catMatch || descMatch || platMatch || genreMatch || keywordMatch;
   });
 }
 
 /**
- * Sorts games based on the selected sort criteria without mutating the original catalog
- * @param {Array} gamesList - Array of games to sort
- * @returns {Array} Sorted copy
+ * Sorts games based on the selected sort criteria (immutable clone)
  */
 function sortGames(gamesList) {
   const list = [...gamesList];
 
   switch (state.sortBy) {
-    case "rating":
-      // Highest rated first
-      return list.sort((a, b) => {
-        const ratingA = typeof a.rating === "number" ? a.rating : -1;
-        const ratingB = typeof b.rating === "number" ? b.rating : -1;
-        return ratingB - ratingA;
-      });
-
     case "az":
-      // Alphabetical A-Z
       return list.sort((a, b) => a.title.localeCompare(b.title));
 
-    case "newest":
-      // Catalog order (recently added)
-      return list;
+    case "za":
+      return list.sort((a, b) => b.title.localeCompare(a.title));
+
+    case "availability":
+      // Prioritize confirmed browser games first
+      return list.sort((a, b) => {
+        const score = (g) => {
+          if (g.availability === "browser") return 1;
+          if (g.availability === "demo") return 2;
+          if (g.availability === "files-required") return 3;
+          if (g.availability === "project") return 4;
+          return 5;
+        };
+        return score(a) - score(b);
+      });
+
+    case "platform":
+      return list.sort((a, b) => (a.platform || "").localeCompare(b.platform || ""));
 
     case "featured":
     default:
-      // Featured first, preserving stable catalog order
+      // Featured games first, preserving catalog order
       return list.sort((a, b) => {
         if (a.featured === b.featured) return 0;
         return a.featured ? -1 : 1;
@@ -547,16 +370,130 @@ function sortGames(gamesList) {
 }
 
 // ============================================================================
-// 8. INTERACTION HANDLERS & EVENT INITIALIZATION
+// 6. GAME DETAILS MODAL & SAFE EXTERNAL LAUNCH
 // ============================================================================
 
 /**
- * Initialize Genre Filter Pills and Sync with Catalog Toolbar
+ * Opens Game Details Modal with full metadata
+ */
+function openGameDetails(gameId) {
+  const game = getGameById(gameId);
+  if (!game || !DOM.modal) return;
+
+  state.selectedGameId = gameId;
+
+  // Media
+  if (DOM.modalMedia) {
+    const fallbackUri = getFallbackSvgUri(game.title, game.category);
+    DOM.modalMedia.innerHTML = `
+      <img 
+        src="${escapeHtml(game.image)}" 
+        alt="${escapeHtml(game.title)} Cover Art" 
+        class="modal-cover-img"
+        onerror="this.onerror=null; this.src='${fallbackUri}';"
+      />
+    `;
+  }
+
+  // Title
+  if (DOM.modalTitle) {
+    DOM.modalTitle.textContent = game.title;
+  }
+
+  // Genres
+  if (DOM.modalGenres) {
+    const genresList = Array.isArray(game.genres) ? game.genres : [game.category];
+    DOM.modalGenres.innerHTML = genresList.map(g => `<span class="modal-genre-pill">${escapeHtml(g)}</span>`).join("");
+  }
+
+  // Status Badge
+  if (DOM.modalStatusBadge) {
+    DOM.modalStatusBadge.innerHTML = getAvailabilityBadgeMarkup(game.availability, game.availabilityLabel);
+  }
+
+  // Description
+  if (DOM.modalDescription) {
+    DOM.modalDescription.textContent = game.description;
+  }
+
+  // Platform & Requirements
+  if (DOM.modalPlatform) {
+    DOM.modalPlatform.textContent = game.platform || "Web Browser";
+  }
+  if (DOM.modalRequirements) {
+    DOM.modalRequirements.textContent = game.requirements || "Runs in standard WebGL/WebAssembly browsers.";
+  }
+
+  // External Destination Notice
+  if (DOM.modalExternalNotice) {
+    try {
+      const parsed = new URL(game.gameUrl);
+      DOM.modalExternalNotice.textContent = `External link opens ${parsed.hostname} in a new tab.`;
+    } catch (e) {
+      DOM.modalExternalNotice.textContent = "Opens external game destination in a new tab.";
+    }
+  }
+
+  // Launch Button
+  if (DOM.modalLaunchBtn) {
+    DOM.modalLaunchBtn.innerHTML = `
+      <span>${escapeHtml(game.buttonText || "LAUNCH GAME")}</span>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+    `;
+    DOM.modalLaunchBtn.setAttribute("data-target-url", game.gameUrl);
+  }
+
+  // Show dialog
+  DOM.modal.classList.add("is-visible");
+  DOM.modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  if (DOM.modalCloseBtn) DOM.modalCloseBtn.focus();
+}
+
+/**
+ * Closes Game Details Modal
+ */
+function closeGameDetails() {
+  if (!DOM.modal) return;
+  DOM.modal.classList.remove("is-visible");
+  DOM.modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  state.selectedGameId = null;
+}
+
+/**
+ * Safely launches external game URL in new tab with noopener noreferrer
+ */
+function launchExternalDestination(url) {
+  if (!isValidGameUrl(url)) {
+    alert("This external game destination is currently under verification.");
+    return;
+  }
+  // Open cleanly in new tab preserving Rob-Links session
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+// ============================================================================
+// 7. INITIALIZATION & EVENT LISTENERS
+// ============================================================================
+
+/**
+ * Initialize Genre Pills and sync with Catalog dropdown
  */
 function initializeGenreFilters() {
-  // Populate the Explore Genres section pills
+  const genres = typeof GENRES !== "undefined" ? GENRES : [
+    "All Games", "FPS", "Horror", "Survival", "Open World", "Racing", 
+    "Sports", "Adventure", "Strategy", "RTS", "Simulation", "Sandbox", 
+    "RPG", "Action", "Multiplayer"
+  ];
+
+  // Populate Genre Pills
   if (DOM.genreFilterContainer) {
-    DOM.genreFilterContainer.innerHTML = GENRES.map(genre => {
+    DOM.genreFilterContainer.innerHTML = genres.map(genre => {
       const isActive = genre === state.activeGenre;
       return `
         <button 
@@ -578,9 +515,9 @@ function initializeGenreFilters() {
     });
   }
 
-  // Populate the Toolbar dropdown select
+  // Populate Toolbar Dropdown Select
   if (DOM.catalogGenreSelect) {
-    DOM.catalogGenreSelect.innerHTML = GENRES.map(genre => {
+    DOM.catalogGenreSelect.innerHTML = genres.map(genre => {
       return `<option value="${escapeHtml(genre)}">${escapeHtml(genre)}</option>`;
     }).join("");
 
@@ -592,14 +529,12 @@ function initializeGenreFilters() {
 }
 
 /**
- * Updates the active genre across both the pills and the dropdown selector
- * @param {string} genre - Genre name
+ * Updates active genre across pills, dropdown, and catalog
  */
 function setGenreFilter(genre) {
   if (!genre) return;
   state.activeGenre = genre;
 
-  // Update pills styling
   if (DOM.genreFilterContainer) {
     const pills = DOM.genreFilterContainer.querySelectorAll(".genre-pill");
     pills.forEach(pill => {
@@ -609,7 +544,6 @@ function setGenreFilter(genre) {
     });
   }
 
-  // Sync toolbar select
   if (DOM.catalogGenreSelect) {
     DOM.catalogGenreSelect.value = genre;
   }
@@ -618,7 +552,7 @@ function setGenreFilter(genre) {
 }
 
 /**
- * Initialize Search Input handling
+ * Initialize Search Input & Keyboard Shortcut (/)
  */
 function initializeSearch() {
   if (!DOM.searchInput) return;
@@ -649,6 +583,14 @@ function initializeSearch() {
       setGenreFilter("All Games");
     });
   }
+
+  // Keyboard shortcut: '/' focuses search bar
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "/" && document.activeElement !== DOM.searchInput && !DOM.modal?.classList.contains("is-visible")) {
+      e.preventDefault();
+      DOM.searchInput?.focus();
+    }
+  });
 }
 
 /**
@@ -664,35 +606,62 @@ function initializeSorting() {
 }
 
 /**
- * Setup Event Delegation for Game Cards & Play Buttons across all sections
+ * Event Delegation for Game Cards, Launch Buttons, and Modal
  */
-function initializeGameCardClicks() {
+function initializeCardInteractions() {
   document.addEventListener("click", (e) => {
-    // 1. Play button click
-    const playBtn = e.target.closest("[data-launch-id]");
-    if (playBtn) {
+    // 1. Play Now / Action button on card
+    const actionBtn = e.target.closest("[data-launch-id]");
+    if (actionBtn) {
       e.stopPropagation();
       e.preventDefault();
-      const gameId = playBtn.getAttribute("data-launch-id");
-      handleGameLaunch(gameId);
+      const gameId = actionBtn.getAttribute("data-launch-id");
+      const game = getGameById(gameId);
+      if (game) {
+        // Open details modal first so player sees requirements and external redirect info
+        openGameDetails(gameId);
+      }
       return;
     }
 
-    // 2. Card click (clicking thumbnail or card body)
+    // 2. Card click opens Game Details Modal
     const card = e.target.closest(".game-card");
     if (card) {
       const gameId = card.getAttribute("data-game-id");
-      handleGameLaunch(gameId);
+      openGameDetails(gameId);
       return;
+    }
+
+    // 3. Modal Launch External Game button click
+    const modalLaunch = e.target.closest("#detailsModalLaunchBtn");
+    if (modalLaunch) {
+      e.preventDefault();
+      const targetUrl = modalLaunch.getAttribute("data-target-url");
+      if (targetUrl) {
+        launchExternalDestination(targetUrl);
+      }
+      return;
+    }
+  });
+
+  // Modal Close Handlers
+  if (DOM.modalCloseBtn) {
+    DOM.modalCloseBtn.addEventListener("click", closeGameDetails);
+  }
+  if (DOM.modalBackdrop) {
+    DOM.modalBackdrop.addEventListener("click", closeGameDetails);
+  }
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && DOM.modal?.classList.contains("is-visible")) {
+      closeGameDetails();
     }
   });
 }
 
 /**
- * Setup Navigation, Sticky Header, and Mobile Menu
+ * Header Navigation, ScrollSpy, and Mobile Drawer
  */
 function initializeNavigation() {
-  // Mobile Hamburger Toggle
   if (DOM.mobileMenuBtn && DOM.mobileNav) {
     DOM.mobileMenuBtn.addEventListener("click", () => {
       const isExpanded = DOM.mobileMenuBtn.getAttribute("aria-expanded") === "true";
@@ -700,7 +669,6 @@ function initializeNavigation() {
       DOM.mobileNav.classList.toggle("is-open", !isExpanded);
     });
 
-    // Close mobile nav when clicking any link
     DOM.mobileNav.querySelectorAll(".nav-link").forEach(link => {
       link.addEventListener("click", () => {
         DOM.mobileMenuBtn.setAttribute("aria-expanded", "false");
@@ -709,69 +677,47 @@ function initializeNavigation() {
     });
   }
 
-  // Active Navigation Indicator on scroll
+  // ScrollSpy for Header
   const sections = document.querySelectorAll("section[id]");
   window.addEventListener("scroll", () => {
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // Header shadow/background toggle
+
     if (DOM.header) {
       DOM.header.classList.toggle("is-scrolled", scrollY > 20);
     }
 
-    // Back to top button visibility
     if (DOM.backToTopBtn) {
       DOM.backToTopBtn.classList.toggle("is-visible", scrollY > 400);
     }
 
-    // Update active nav link
     sections.forEach(section => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 120;
-      const sectionId = section.getAttribute("id");
+      const height = section.offsetHeight;
+      const top = section.offsetTop - 120;
+      const id = section.getAttribute("id");
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document.querySelectorAll(`.nav-link[href="#${sectionId}"]`).forEach(link => {
-          link.classList.add("is-active");
-        });
+      if (scrollY > top && scrollY <= top + height) {
+        document.querySelectorAll(`.nav-link[href="#${id}"]`).forEach(link => link.classList.add("is-active"));
       } else {
-        document.querySelectorAll(`.nav-link[href="#${sectionId}"]`).forEach(link => {
-          link.classList.remove("is-active");
-        });
+        document.querySelectorAll(`.nav-link[href="#${id}"]`).forEach(link => link.classList.remove("is-active"));
       }
     });
   }, { passive: true });
 
-  // Back to top click
   if (DOM.backToTopBtn) {
     DOM.backToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
-
-  // Modal dialog handlers
-  if (DOM.modalCloseBtn) {
-    DOM.modalCloseBtn.addEventListener("click", closeModal);
-  }
-  if (DOM.modalBackdrop) {
-    DOM.modalBackdrop.addEventListener("click", closeModal);
-  }
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && DOM.modal && DOM.modal.classList.contains("is-visible")) {
-      closeModal();
-    }
-  });
 }
 
-// ============================================================================
-// 9. WEBSITE INITIALIZATION
-// ============================================================================
-
+/**
+ * Main Initialization
+ */
 function initializeWebsite() {
   initializeGenreFilters();
   initializeSearch();
   initializeSorting();
-  initializeGameCardClicks();
+  initializeCardInteractions();
   initializeNavigation();
 
   // Initial renders
@@ -779,15 +725,14 @@ function initializeWebsite() {
   renderTrendingGames();
   renderGameCatalog();
 
-  // Print helpful console message for developers
   console.info(
-    "%c[ROB-LINKS]%c Ready! To configure games with live external URLs, edit the `GAMES` array at the top of `assets/js/app.js`.",
+    "%c[ROB-LINKS]%c Ready! 36 browser games loaded into directory.",
     "color: #335fff; font-weight: bold; font-size: 13px;",
     "color: #b8b8b8; font-size: 12px;"
   );
 }
 
-// Run on DOM content loaded
+// Run when DOM ready
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initializeWebsite);
 } else {
