@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <radialGradient id="heroCenterGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#335fff" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#1e293b" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#111111" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyanSpot" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#111111" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#242c3d"/>
+      <stop offset="100%" stop-color="#141824"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2538"/>
+      <stop offset="100%" stop-color="#0f131f"/>
+    </linearGradient>
+    <linearGradient id="cardGradAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#335fff"/>
+      <stop offset="100%" stop-color="#192e85"/>
+    </linearGradient>
+    <linearGradient id="padGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#283042"/>
+      <stop offset="100%" stop-color="#161b26"/>
+    </linearGradient>
+    
+    <!-- Glow Filters -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="intenseGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Glows -->
+  <circle cx="360" cy="260" r="280" fill="url(#heroCenterGlow)"/>
+  <circle cx="280" cy="180" r="180" fill="url(#cyanSpot)"/>
+
+  <!-- Perspective Floor Grid (Isometric / Horizon) -->
+  <g opacity="0.22" stroke="#335fff" stroke-width="1.2">
+    <!-- Perspective convergence lines -->
+    <line x1="350" y1="260" x2="50" y2="520"/>
+    <line x1="350" y1="260" x2="180" y2="520"/>
+    <line x1="350" y1="260" x2="310" y2="520"/>
+    <line x1="350" y1="260" x2="440" y2="520"/>
+    <line x1="350" y1="260" x2="570" y2="520"/>
+    <line x1="350" y1="260" x2="680" y2="520"/>
+    <!-- Horizon grid arcs / lines -->
+    <line x1="160" y1="340" x2="540" y2="340"/>
+    <line x1="110" y1="390" x2="590" y2="390"/>
+    <line x1="60" y1="450" x2="640" y2="450"/>
+    <line x1="10" y1="515" x2="690" y2="515"/>
+  </g>
+
+  <!-- Floating Particles & Stars -->
+  <g fill="#60a5fa" opacity="0.75">
+    <circle cx="120" cy="90" r="2.5" />
+    <circle cx="200" cy="140" r="1.5" />
+    <circle cx="580" cy="110" r="2" />
+    <circle cx="630" cy="220" r="3" />
+    <circle cx="150" cy="280" r="2" />
+    <circle cx="540" cy="370" r="2.5" />
+    <polygon points="560,70 564,74 560,78 556,74" fill="#38bdf8"/>
+    <polygon points="170,60 173,63 170,66 167,63" fill="#335fff"/>
+  </g>
+
+  <!-- Back Floating Game Card (Left tilted) -->
+  <g transform="translate(140, 100) rotate(-12)" filter="url(#softGlow)">
+    <rect width="180" height="120" rx="14" fill="url(#cardGrad2)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <!-- Mini screen content -->
+    <rect x="12" y="12" width="156" height="68" rx="8" fill="#0d111a"/>
+    <circle cx="90" cy="46" r="16" fill="#335fff" opacity="0.3"/>
+    <polygon points="86,40 98,46 86,52" fill="#38bdf8"/>
+    <rect x="16" y="90" width="70" height="8" rx="4" fill="#ffffff" opacity="0.8"/>
+    <rect x="16" y="103" width="40" height="6" rx="3" fill="#335fff"/>
+  </g>
+
+  <!-- Back Floating Game Card (Right tilted) -->
+  <g transform="translate(420, 110) rotate(14)">
+    <rect width="190" height="125" rx="14" fill="url(#cardGrad2)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <rect x="12" y="12" width="166" height="70" rx="8" fill="#141926"/>
+    <!-- Isometric block graphic -->
+    <path d="M95,30 L120,44 L95,58 L70,44 Z" fill="#45d483" opacity="0.8"/>
+    <path d="M70,44 L95,58 L95,78 L70,64 Z" fill="#2eb065"/>
+    <path d="M120,44 L95,58 L95,78 L120,64 Z" fill="#1f8a4c"/>
+    <rect x="16" y="93" width="80" height="8" rx="4" fill="#ffffff" opacity="0.8"/>
+    <rect x="16" y="106" width="50" height="6" rx="3" fill="#45d483"/>
+  </g>
+
+  <!-- Centerpiece: Elevated Futuristic Game Controller & Core Hub -->
+  <g transform="translate(230, 200)">
+    <!-- Controller Body Silhouette (Rounded, sleek modern gamepad) -->
+    <path d="M 60,30 
+             C 110,15 170,15 220,30 
+             C 245,36 265,58 262,95 
+             C 260,125 240,165 205,170 
+             C 185,172 165,150 150,140 
+             C 145,137 135,137 130,140 
+             C 115,150 95,172 75,170 
+             C 40,165 20,125 18,95 
+             C 15,58 35,36 60,30 Z" 
+          fill="url(#padGrad)" 
+          stroke="rgba(51, 95, 255, 0.45)" 
+          stroke-width="2.5" 
+          filter="url(#softGlow)"/>
+
+    <!-- Controller Grip Accent lines -->
+    <path d="M 38,70 C 44,110 65,145 80,155" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+    <path d="M 242,70 C 236,110 215,145 200,155" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+
+    <!-- Left D-PAD (Cross) -->
+    <g transform="translate(75, 75)">
+      <rect x="-6" y="-18" width="12" height="36" rx="3" fill="#141924" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <rect x="-18" y="-6" width="36" height="12" rx="3" fill="#141924" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <circle cx="0" cy="0" r="3" fill="#335fff"/>
+    </g>
+
+    <!-- Right Action Buttons (Roblox/Diamond Layout) -->
+    <g transform="translate(205, 75)">
+      <!-- Top Button Y -->
+      <circle cx="0" cy="-14" r="6" fill="#1c2436" stroke="#38bdf8" stroke-width="1.5"/>
+      <!-- Right Button B -->
+      <circle cx="14" cy="0" r="6" fill="#1c2436" stroke="#f43f5e" stroke-width="1.5"/>
+      <!-- Bottom Button A -->
+      <circle cx="0" cy="14" r="6" fill="#1c2436" stroke="#45d483" stroke-width="1.5"/>
+      <!-- Left Button X -->
+      <circle cx="-14" cy="0" r="6" fill="#1c2436" stroke="#fbbf24" stroke-width="1.5"/>
+    </g>
+
+    <!-- Center Glowing Touchpad / Logo Button (The Link Core) -->
+    <g transform="translate(140, 75)">
+      <rect x="-24" y="-14" width="48" height="28" rx="8" fill="#0d111d" stroke="#335fff" stroke-width="1.5"/>
+      <!-- Play / Link Chevron -->
+      <polygon points="-6,-6 8,0 -6,6" fill="#335fff"/>
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#335fff" stroke-dasharray="3,3" opacity="0.6"/>
+    </g>
+
+    <!-- Thumbsticks (Isometric offset) -->
+    <circle cx="108" cy="115" r="14" fill="#1a202c" stroke="#335fff" stroke-width="1.5"/>
+    <circle cx="108" cy="115" r="8" fill="#2d3748"/>
+    <circle cx="172" cy="115" r="14" fill="#1a202c" stroke="#335fff" stroke-width="1.5"/>
+    <circle cx="172" cy="115" r="8" fill="#2d3748"/>
+  </g>
+
+  <!-- Front Floating Block / Platform (Featured Portal Badge) -->
+  <g transform="translate(190, 375)">
+    <rect width="320" height="66" rx="14" fill="url(#cardGrad1)" stroke="rgba(51,95,255,0.4)" stroke-width="1.5" filter="url(#softGlow)"/>
+    <!-- Status Dot -->
+    <circle cx="28" cy="33" r="5" fill="#45d483" filter="url(#softGlow)"/>
+    <!-- Text Elements -->
+    <text x="46" y="30" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="13" fill="#ffffff" letter-spacing="0.5">DIRECT BROWSER LAUNCH</text>
+    <text x="46" y="47" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">Instant external game navigation · Zero install</text>
+    <!-- Launch Arrow Pill -->
+    <rect x="252" y="18" width="52" height="30" rx="8" fill="#335fff"/>
+    <polygon points="274,27 284,33 274,39" fill="#ffffff"/>
+  </g>
+
+  <!-- Floating 3D Cubes (Roblox-inspired aesthetic blocks) -->
+  <g transform="translate(110, 310) rotate(15)">
+    <rect width="42" height="42" rx="8" fill="url(#cardGradAccent)" stroke="#60a5fa" stroke-width="1.2"/>
+    <rect x="13" y="13" width="16" height="16" rx="3" fill="#0f172a"/>
+  </g>
+  <g transform="translate(550, 270) rotate(-20)">
+    <rect width="48" height="48" rx="10" fill="#1f2937" stroke="#38bdf8" stroke-width="1.2"/>
+    <polygon points="24,14 36,24 24,34 12,24" fill="#38bdf8" opacity="0.7"/>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="saBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="60%" stop-color="#071222"/>
+      <stop offset="100%" stop-color="#02070e"/>
+    </linearGradient>
+    <radialGradient id="floodLights" cx="50%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.45"/>
+      <stop offset="40%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#saBg)"/>
+  <circle cx="320" cy="80" r="260" fill="url(#floodLights)"/>
+
+  <!-- Stadium Arc Architecture & Roof Beams -->
+  <path d="M 60,180 Q 320,40 580,180" stroke="#38bdf8" stroke-width="3" fill="none" opacity="0.6"/>
+  <path d="M 100,200 Q 320,80 540,200" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.4"/>
+  
+  <!-- Floodlight Towers (Rays) -->
+  <polygon points="120,60 180,240 60,240" fill="#38bdf8" opacity="0.12"/>
+  <polygon points="520,60 580,240 460,240" fill="#38bdf8" opacity="0.12"/>
+  <circle cx="120" cy="60" r="8" fill="#ffffff"/>
+  <circle cx="520" cy="60" r="8" fill="#ffffff"/>
+
+  <!-- Stadium Crowd Seating Tiers -->
+  <path d="M 0,260 Q 320,190 640,260 L 640,360 L 0,360 Z" fill="#0d1b2a"/>
+  
+  <!-- Emerald Green Pitch / Court -->
+  <ellipse cx="320" cy="285" rx="280" ry="65" fill="#15803d" stroke="#22c55e" stroke-width="2"/>
+  <ellipse cx="320" cy="285" rx="80" ry="22" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.7"/>
+  <line x1="320" y1="220" x2="320" y2="350" stroke="#ffffff" stroke-width="2" opacity="0.7"/>
+
+  <!-- High-Velocity Ball with Cyan Streaks (Center) -->
+  <g transform="translate(320, 180)">
+    <!-- Speed Trail -->
+    <path d="M -160,50 Q -70,25 0,0 Q -70,-20 -150,-10 Z" fill="#38bdf8" opacity="0.35"/>
+    <line x1="-120" y1="25" x2="-20" y2="5" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+    <line x1="-150" y1="-10" x2="-25" y2="-5" stroke="#38bdf8" stroke-width="2" opacity="0.7"/>
+
+    <!-- Soccer / High-Tech Sports Ball -->
+    <circle cx="0" cy="0" r="34" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <!-- Ball Patterns -->
+    <polygon points="0,-12 11,-4 7,10 -7,10 -11,-4" fill="#0f172a"/>
+    <line x1="0" y1="-12" x2="0" y2="-34" stroke="#0f172a" stroke-width="2"/>
+    <line x1="11" y1="-4" x2="28" y2="-12" stroke="#0f172a" stroke-width="2"/>
+    <line x1="7" y1="10" x2="20" y2="28" stroke="#0f172a" stroke-width="2"/>
+    <line x1="-7" y1="10" x2="-20" y2="28" stroke="#0f172a" stroke-width="2"/>
+    <line x1="-11" y1="-4" x2="-28" y2="-12" stroke="#0f172a" stroke-width="2"/>
+  </g>
+
+  <!-- Title Badge Overlay -->
+  <g transform="translate(30, 275)">
+    <rect width="180" height="55" rx="8" fill="#0b172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#ffffff" letter-spacing="1">SPORTS ARENA</text>
+    <text x="16" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#7dd3fc" letter-spacing="1.5">CHAMPIONS STADIUM</text>
+  </g>
+</svg>

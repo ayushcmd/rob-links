@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="arBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1026"/>
+      <stop offset="50%" stop-color="#110717"/>
+      <stop offset="100%" stop-color="#050108"/>
+    </linearGradient>
+    <radialGradient id="arNeonGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#arBg)"/>
+  <circle cx="320" cy="160" r="230" fill="url(#arNeonGlow)"/>
+
+  <!-- Pixel stars / bursts -->
+  <g fill="#f43f5e">
+    <polygon points="120,80 123,86 130,88 123,90 120,96 117,90 110,88 117,86"/>
+    <polygon points="500,70 503,76 510,78 503,80 500,86 497,80 490,78 497,76"/>
+    <polygon points="540,210 542,215 548,217 542,219 540,224 538,219 532,217 538,215"/>
+  </g>
+  <g fill="#38bdf8">
+    <polygon points="160,190 162,195 168,197 162,199 160,204 158,199 152,197 158,195"/>
+    <polygon points="450,230 452,235 458,237 452,239 450,244 448,239 442,237 448,235"/>
+  </g>
+
+  <!-- Arcade Cabinet Silhouette (Center) -->
+  <g transform="translate(320, 165)">
+    <!-- Outer Cabinet Silhouette -->
+    <path d="M -90,-110 L 90,-110 L 80,-40 L 95,-10 L 80,120 L -80,120 L -95,-10 L -80,-40 Z" fill="#170c24" stroke="#ec4899" stroke-width="2.5"/>
+
+    <!-- Marquee Banner Header -->
+    <rect x="-70" y="-100" width="140" height="32" rx="4" fill="#3b0764" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="0" y="-78" font-family="monospace" font-weight="900" font-size="14" fill="#fbcfe8" text-anchor="middle" letter-spacing="2">★ RETRO ★</text>
+
+    <!-- CRT Bezel & Screen -->
+    <rect x="-65" y="-55" width="130" height="85" rx="10" fill="#090312" stroke="#8b5cf6" stroke-width="2"/>
+    <!-- Screen Pixel Graphics -->
+    <rect x="-55" y="-45" width="110" height="65" rx="6" fill="#140624"/>
+    <!-- Pixel Invader on screen -->
+    <g fill="#a855f7" transform="translate(0, -15)">
+      <rect x="-15" y="-10" width="30" height="20" rx="3"/>
+      <circle cx="-6" cy="-2" r="3" fill="#ffffff"/>
+      <circle cx="6" cy="-2" r="3" fill="#ffffff"/>
+      <rect x="-20" y="-4" width="5" height="12"/>
+      <rect x="15" y="-4" width="5" height="12"/>
+    </g>
+
+    <!-- Control Deck (Slanted Table) -->
+    <polygon points="-80,35 80,35 90,65 -90,65" fill="#2e1065" stroke="#ec4899" stroke-width="1.5"/>
+    <!-- Red Joystick (Left) -->
+    <circle cx="-40" cy="50" r="7" fill="#1f1035"/>
+    <line x1="-40" y1="50" x2="-45" y2="35" stroke="#e2e8f0" stroke-width="3"/>
+    <circle cx="-47" cy="32" r="8" fill="#ef4444"/>
+    <!-- Buttons (Right) -->
+    <circle cx="20" cy="50" r="5" fill="#38bdf8"/>
+    <circle cx="35" cy="45" r="5" fill="#facc15"/>
+    <circle cx="50" cy="52" r="5" fill="#45d483"/>
+
+    <!-- Coin Door & Glowing Insert Coin Slots -->
+    <rect x="-35" y="75" width="70" height="40" rx="4" fill="#0f0717" stroke="#6b21a8" stroke-width="1"/>
+    <rect x="-20" y="85" width="6" height="14" fill="#f43f5e"/>
+    <rect x="14" y="85" width="6" height="14" fill="#f43f5e"/>
+  </g>
+
+  <!-- Title Badge Overlay -->
+  <g transform="translate(30, 275)">
+    <rect width="180" height="55" rx="8" fill="#190924" fill-opacity="0.9" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#ffffff" letter-spacing="1">ARCADE RUSH</text>
+    <text x="16" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#f472b6" letter-spacing="1.5">RETRO 80S CLASSICS</text>
+  </g>
+</svg>

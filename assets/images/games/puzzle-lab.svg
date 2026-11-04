@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="plBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1726"/>
+      <stop offset="60%" stop-color="#080e1a"/>
+      <stop offset="100%" stop-color="#03060a"/>
+    </linearGradient>
+    <radialGradient id="plCyanGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#0284c7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#plBg)"/>
+  <circle cx="320" cy="160" r="220" fill="url(#plCyanGlow)"/>
+
+  <!-- Lab Grid Pattern Background -->
+  <g stroke="rgba(6, 182, 212, 0.12)" stroke-width="1.2">
+    <line x1="80" y1="0" x2="80" y2="360"/>
+    <line x1="160" y1="0" x2="160" y2="360"/>
+    <line x1="240" y1="0" x2="240" y2="360"/>
+    <line x1="320" y1="0" x2="320" y2="360"/>
+    <line x1="400" y1="0" x2="400" y2="360"/>
+    <line x1="480" y1="0" x2="480" y2="360"/>
+    <line x1="560" y1="0" x2="560" y2="360"/>
+    <line x1="0" y1="90" x2="640" y2="90"/>
+    <line x1="0" y1="180" x2="640" y2="180"/>
+    <line x1="0" y1="270" x2="640" y2="270"/>
+  </g>
+
+  <!-- Laser Reflection Circuit Path -->
+  <polyline points="80,180 200,180 200,90 440,90 440,240 320,240" stroke="#06b6d4" stroke-width="3" stroke-dasharray="6,4" fill="none"/>
+  <circle cx="80" cy="180" r="6" fill="#38bdf8"/>
+  <circle cx="200" cy="90" r="5" fill="#f59e0b"/>
+  <circle cx="440" cy="90" r="5" fill="#f59e0b"/>
+  <circle cx="440" cy="240" r="5" fill="#f59e0b"/>
+
+  <!-- Centerpiece: Levitating Glowing Quantum Puzzle Cube (Isometric) -->
+  <g transform="translate(320, 160)">
+    <!-- Top Face -->
+    <polygon points="0,-60 55,-30 0,0 -55,-30" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" opacity="0.9"/>
+    <!-- Left Face -->
+    <polygon points="-55,-30 0,0 0,65 -55,35" fill="#0284c7" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- Right Face -->
+    <polygon points="0,0 55,-30 55,35 0,65" fill="#0369a1" stroke="#ffffff" stroke-width="1.5"/>
+    
+    <!-- Inner Core Glyph (Puzzle Knot) -->
+    <circle cx="0" cy="5" r="16" fill="#f59e0b" opacity="0.9"/>
+    <polygon points="-6,5 0,-5 6,5" fill="#ffffff"/>
+  </g>
+
+  <!-- Smaller Orbital Cubes -->
+  <g transform="translate(160, 230) rotate(25)">
+    <rect width="36" height="36" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="18" cy="18" r="6" fill="#fbbf24"/>
+  </g>
+  <g transform="translate(490, 130) rotate(-15)">
+    <rect width="32" height="32" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="16" cy="16" r="5" fill="#38bdf8"/>
+  </g>
+
+  <!-- Laser Emitter Spark -->
+  <line x1="80" y1="180" x2="200" y2="180" stroke="#a5f3fc" stroke-width="1.5"/>
+
+  <!-- Title Badge Overlay -->
+  <g transform="translate(30, 275)">
+    <rect width="180" height="55" rx="8" fill="#0a121f" fill-opacity="0.9" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#ffffff" letter-spacing="1">PUZZLE LAB</text>
+    <text x="16" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#67e8f9" letter-spacing="1.5">PHYSICS &amp; LOGIC</text>
+  </g>
+</svg>

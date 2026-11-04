@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="advBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d241c"/>
+      <stop offset="100%" stop-color="#040a08"/>
+    </linearGradient>
+    <radialGradient id="advGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#advBg)"/>
+  <circle cx="320" cy="160" r="200" fill="url(#advGlow)"/>
+  <!-- Mountain silhouettes -->
+  <polygon points="80,280 240,140 400,280" fill="#133527"/>
+  <polygon points="260,280 420,110 580,280" fill="#1d4d3a"/>
+  <!-- Compass motif -->
+  <g transform="translate(320, 200)">
+    <circle cx="0" cy="0" r="42" fill="#081812" stroke="#fbbf24" stroke-width="2"/>
+    <polygon points="0,-32 8,-5 0,0" fill="#ef4444"/>
+    <polygon points="0,32 -8,5 0,0" fill="#e2e8f0"/>
+    <polygon points="-32,0 -5,-8 0,0" fill="#e2e8f0"/>
+    <polygon points="32,0 5,8 0,0" fill="#e2e8f0"/>
+  </g>
+  <text x="320" y="70" font-family="system-ui, sans-serif" font-weight="900" font-size="24" fill="#ffffff" text-anchor="middle" letter-spacing="2">ADVENTURE</text>
+</svg>

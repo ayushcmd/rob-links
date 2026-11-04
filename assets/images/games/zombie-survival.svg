@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="zsBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b1712"/>
+      <stop offset="60%" stop-color="#060c09"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="70%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#84cc16" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#15803d" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#zsBg)"/>
+  <circle cx="450" cy="110" r="160" fill="url(#moonGlow)"/>
+
+  <!-- Eerie Sickly Moon -->
+  <circle cx="450" cy="110" r="45" fill="#d9f99d" opacity="0.85"/>
+  <circle cx="435" cy="100" r="38" fill="#0b1712"/>
+
+  <!-- Ruined City Skyline Silhouette -->
+  <g fill="#09140f">
+    <!-- Back buildings -->
+    <rect x="50" y="140" width="60" height="180"/>
+    <rect x="130" y="100" width="75" height="220"/>
+    <polygon points="130,100 170,70 205,100"/>
+    <rect x="230" y="160" width="55" height="160"/>
+    <rect x="310" y="130" width="80" height="190"/>
+    <rect x="420" y="150" width="65" height="170"/>
+    <rect x="510" y="120" width="90" height="200"/>
+  </g>
+  <!-- Broken Windows with Yellow Glow -->
+  <g fill="#a3e635" opacity="0.35">
+    <rect x="145" y="120" width="8" height="12"/>
+    <rect x="165" y="140" width="8" height="12"/>
+    <rect x="330" y="150" width="10" height="14"/>
+    <rect x="530" y="140" width="8" height="12"/>
+    <rect x="555" y="170" width="8" height="12"/>
+  </g>
+
+  <!-- Front Ground & Barbed Wire Fence -->
+  <rect x="0" y="280" width="640" height="80" fill="#040906"/>
+  <!-- Barbed Wire Fence Posts -->
+  <line x1="0" y1="290" x2="640" y2="285" stroke="#4d7c0f" stroke-width="2"/>
+  <line x1="0" y1="305" x2="640" y2="300" stroke="#4d7c0f" stroke-width="2"/>
+  <line x1="120" y1="270" x2="120" y2="330" stroke="#365314" stroke-width="4"/>
+  <line x1="280" y1="270" x2="280" y2="330" stroke="#365314" stroke-width="4"/>
+  <line x1="480" y1="270" x2="480" y2="330" stroke="#365314" stroke-width="4"/>
+
+  <!-- Zombie Silhouettes Reaching Out -->
+  <g fill="#020503">
+    <!-- Zombie 1 (Left) -->
+    <circle cx="190" cy="230" r="14"/>
+    <path d="M 175,300 L 182,245 C 185,242 195,242 198,245 L 205,300 Z"/>
+    <path d="M 195,255 L 225,235 L 245,240" stroke="#020503" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="194" cy="228" r="2" fill="#84cc16"/>
+
+    <!-- Zombie 2 (Center-Right, larger) -->
+    <circle cx="360" cy="205" r="18"/>
+    <path d="M 340,295 L 350,225 C 354,220 366,220 370,225 L 380,295 Z"/>
+    <!-- Reaching Arms -->
+    <path d="M 350,235 L 320,215 L 300,210" stroke="#020503" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 370,235 L 405,215 L 420,210" stroke="#020503" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="356" cy="204" r="2.5" fill="#84cc16"/>
+    <circle cx="366" cy="204" r="2.5" fill="#84cc16"/>
+  </g>
+
+  <!-- Toxic Biohazard Icon Stamp -->
+  <g transform="translate(560, 50)" opacity="0.6">
+    <circle cx="0" cy="0" r="24" fill="none" stroke="#84cc16" stroke-width="2"/>
+    <circle cx="0" cy="0" r="5" fill="#84cc16"/>
+    <path d="M -9,-9 C -12,-3 -6,0 0,0 C -6,0 -12,3 -9,9" fill="#84cc16"/>
+    <circle cx="0" cy="-12" r="7" fill="none" stroke="#84cc16" stroke-width="3"/>
+    <circle cx="-10" cy="6" r="7" fill="none" stroke="#84cc16" stroke-width="3"/>
+    <circle cx="10" cy="6" r="7" fill="none" stroke="#84cc16" stroke-width="3"/>
+  </g>
+
+  <!-- Title Badge Overlay -->
+  <g transform="translate(30, 275)">
+    <rect width="200" height="55" rx="8" fill="#08140e" fill-opacity="0.9" stroke="#84cc16" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#ffffff" letter-spacing="1">ZOMBIE SURVIVAL</text>
+    <text x="16" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#bef264" letter-spacing="1.5">OPEN WORLD APOCALYPSE</text>
+  </g>
+</svg>

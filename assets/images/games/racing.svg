@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="rcBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1028"/>
+      <stop offset="100%" stop-color="#0a050f"/>
+    </linearGradient>
+    <radialGradient id="rcGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#rcBg)"/>
+  <circle cx="320" cy="180" r="200" fill="url(#rcGlow)"/>
+  <!-- Perspective track -->
+  <polygon points="280,140 360,140 540,360 100,360" fill="#181320" stroke="#f43f5e" stroke-width="2"/>
+  <line x1="320" y1="140" x2="320" y2="360" stroke="#facc15" stroke-width="4" stroke-dasharray="20,15"/>
+  <circle cx="320" cy="120" r="30" fill="#f43f5e" opacity="0.6"/>
+  <!-- Checkered flag motif -->
+  <g transform="translate(320, 260) scale(1.2)">
+    <polygon points="-40,10 40,10 30,-15 -30,-15" fill="#38bdf8"/>
+    <circle cx="-25" cy="12" r="8" fill="#111827"/>
+    <circle cx="25" cy="12" r="8" fill="#111827"/>
+  </g>
+  <text x="320" y="70" font-family="system-ui, sans-serif" font-weight="900" font-size="24" fill="#ffffff" text-anchor="middle" letter-spacing="2">RACING</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="mpBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141936"/>
+      <stop offset="100%" stop-color="#050711"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#mpBg)"/>
+  <!-- Multiplayer Avatars / Connect Network -->
+  <g transform="translate(320, 190)">
+    <line x1="-80" y1="20" x2="0" y2="-40" stroke="#335fff" stroke-width="2" stroke-dasharray="6,4"/>
+    <line x1="80" y1="20" x2="0" y2="-40" stroke="#335fff" stroke-width="2" stroke-dasharray="6,4"/>
+    <line x1="-80" y1="20" x2="80" y2="20" stroke="#335fff" stroke-width="2" stroke-dasharray="6,4"/>
+    
+    <!-- Player 1 (Top) -->
+    <g transform="translate(0, -40)">
+      <circle cx="0" cy="0" r="26" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5"/>
+      <circle cx="0" cy="-6" r="8" fill="#38bdf8"/>
+      <path d="M -12,14 C -12,4 12,4 12,14" fill="#38bdf8"/>
+    </g>
+    <!-- Player 2 (Bottom Left) -->
+    <g transform="translate(-80, 20)">
+      <circle cx="0" cy="0" r="26" fill="#1e293b" stroke="#45d483" stroke-width="2.5"/>
+      <circle cx="0" cy="-6" r="8" fill="#45d483"/>
+      <path d="M -12,14 C -12,4 12,4 12,14" fill="#45d483"/>
+    </g>
+    <!-- Player 3 (Bottom Right) -->
+    <g transform="translate(80, 20)">
+      <circle cx="0" cy="0" r="26" fill="#1e293b" stroke="#f43f5e" stroke-width="2.5"/>
+      <circle cx="0" cy="-6" r="8" fill="#f43f5e"/>
+      <path d="M -12,14 C -12,4 12,4 12,14" fill="#f43f5e"/>
+    </g>
+  </g>
+  <text x="320" y="70" font-family="system-ui, sans-serif" font-weight="900" font-size="24" fill="#ffffff" text-anchor="middle" letter-spacing="2">MULTIPLAYER</text>
+</svg>

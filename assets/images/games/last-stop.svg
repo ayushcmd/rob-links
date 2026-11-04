@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="lsBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141110"/>
+      <stop offset="60%" stop-color="#0a0808"/>
+      <stop offset="100%" stop-color="#020101"/>
+    </linearGradient>
+    <radialGradient id="lsOrangeGlow" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#ea580c" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#7c2d12" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#lsBg)"/>
+  <circle cx="320" cy="150" r="210" fill="url(#lsOrangeGlow)"/>
+
+  <!-- Underground Subway Tunnel Arch -->
+  <path d="M 120,360 L 120,160 C 120,60 520,60 520,160 L 520,360 Z" fill="#181311" stroke="#431407" stroke-width="2"/>
+  <path d="M 170,360 L 170,180 C 170,90 470,90 470,180 L 470,360 Z" fill="#0f0c0b"/>
+
+  <!-- Subway Platform (Left) -->
+  <polygon points="0,270 240,250 240,360 0,360" fill="#29201d"/>
+  <!-- Safety Yellow Platform Edge -->
+  <line x1="0" y1="270" x2="240" y2="250" stroke="#f59e0b" stroke-width="4" stroke-dasharray="10,6"/>
+
+  <!-- Subway Tracks (Perspective) -->
+  <polygon points="240,250 400,250 560,360 220,360" fill="#050404"/>
+  <!-- Rails -->
+  <line x1="280" y1="250" x2="290" y2="360" stroke="#78716c" stroke-width="3"/>
+  <line x1="360" y1="250" x2="480" y2="360" stroke="#78716c" stroke-width="3"/>
+  <!-- Track Sleepers (Ties) -->
+  <line x1="280" y1="260" x2="370" y2="260" stroke="#44403c" stroke-width="2"/>
+  <line x1="282" y1="280" x2="395" y2="280" stroke="#44403c" stroke-width="3"/>
+  <line x1="285" y1="310" x2="430" y2="310" stroke="#44403c" stroke-width="3.5"/>
+  <line x1="288" y1="345" x2="465" y2="345" stroke="#44403c" stroke-width="4"/>
+
+  <!-- Overhead Station Lamp (Flickering Orange) -->
+  <g transform="translate(320, 110)">
+    <line x1="0" y1="-30" x2="0" y2="0" stroke="#78716c" stroke-width="2"/>
+    <polygon points="-25,0 25,0 15,10 -15,10" fill="#44403c"/>
+    <circle cx="0" cy="12" r="8" fill="#fb923c"/>
+    <polygon points="-40,120 40,120 0,12" fill="#ea580c" opacity="0.25"/>
+  </g>
+
+  <!-- Abandoned Metro Sign: "TERMINAL - LAST STOP" -->
+  <rect x="235" y="150" width="170" height="26" rx="4" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="320" y="167" font-family="monospace" font-weight="900" font-size="11" fill="#fdba74" text-anchor="middle" letter-spacing="1">PLATFORM 9 · TERMINAL</text>
+
+  <!-- Title Badge Overlay -->
+  <g transform="translate(30, 275)">
+    <rect width="180" height="55" rx="8" fill="#170c08" fill-opacity="0.9" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#ffffff" letter-spacing="1">LAST STOP</text>
+    <text x="16" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#fdba74" letter-spacing="1.5">SUBWAY SURVIVAL</text>
+  </g>
+</svg>

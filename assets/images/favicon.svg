@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0a0f1d"/>
+    </linearGradient>
+    <linearGradient id="favCubeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f7cff"/>
+      <stop offset="50%" stop-color="#335fff"/>
+      <stop offset="100%" stop-color="#1e3fb8"/>
+    </linearGradient>
+    <linearGradient id="favInnerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+    <filter id="favGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#335fff" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer rounded container -->
+  <rect width="64" height="64" rx="14" fill="url(#favBg)"/>
+  <rect width="64" height="64" rx="14" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  
+  <!-- Rotated/tilted gaming block with hollow center (Roblox-inspired geometric motif) -->
+  <g transform="translate(32, 32) rotate(-14)" filter="url(#favGlow)">
+    <rect x="-18" y="-18" width="36" height="36" rx="7" fill="url(#favCubeGrad)" stroke="#688eff" stroke-width="1.5"/>
+    <!-- Center cut-out portal -->
+    <rect x="-7.5" y="-7.5" width="15" height="15" rx="3.5" fill="url(#favInnerGrad)" stroke="#1e3fb8" stroke-width="1"/>
+    <!-- Tech link accent pip -->
+    <circle cx="0" cy="0" r="2.5" fill="#45d483"/>
+  </g>
+</svg>

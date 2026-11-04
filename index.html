@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rob-Links | Discover Browser Games</title>
+  
+  <!-- SEO & Social Sharing Metadata -->
+  <meta name="description" content="Discover browser games, explore different genres, and launch your favorite gaming demos with Rob-Links.">
+  <meta name="theme-color" content="#111111">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rob-Links | Discover Browser Games">
+  <meta property="og:description" content="Discover browser games, explore different genres, and launch your favorite gaming demos with Rob-Links.">
+  <meta property="og:image" content="assets/images/hero-illustration.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Stylesheet (Relative Path for GitHub Pages compatibility) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       1. Header & Navigation
+       ====================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <!-- Left: Logo & Brand -->
+      <a href="#home" class="brand-link" aria-label="Rob-Links Homepage">
+        <img src="assets/images/logo.svg" alt="ROB-LINKS" class="brand-logo-img" width="180" height="42">
+      </a>
+
+      <!-- Center: Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link is-active">Home</a></li>
+          <li><a href="#featured" class="nav-link">Featured</a></li>
+          <li><a href="#trending" class="nav-link">Trending</a></li>
+          <li><a href="#genres" class="nav-link">Genres</a></li>
+          <li><a href="#discover" class="nav-link">Discover</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Search Trigger & Mobile Toggle -->
+      <div class="header-actions">
+        <a href="#discover" class="btn-search-trigger" aria-label="Jump to game search">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Search</span>
+          <span class="search-shortcut">/</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button type="button" class="btn-mobile-menu" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#featured" class="nav-link">Featured</a></li>
+        <li><a href="#trending" class="nav-link">Trending</a></li>
+        <li><a href="#genres" class="nav-link">Genres</a></li>
+        <li><a href="#discover" class="nav-link">Discover</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ====================================================================
+         2. Hero Section
+         ==================================================================== -->
+    <section id="home" class="hero-section" aria-labelledby="heroTitle">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <!-- Left: Copy & Actions -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>Gaming Hub</span>
+          </div>
+          <h1 id="heroTitle" class="hero-title">
+            One platform.
+            <span class="title-accent">Endless games.</span>
+          </h1>
+          <p class="hero-description">
+            Discover browser games, explore new worlds, and jump straight into the action with instant launcher links.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#discover" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              <span>Explore Games</span>
+            </a>
+            <a href="#trending" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+              </svg>
+              <span>Trending Now</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Custom Gaming Visual Illustration -->
+        <div class="hero-visual" aria-hidden="true">
+          <img 
+            src="assets/images/hero-illustration.svg" 
+            alt="Rob-Links Interactive Gaming Platform Illustration" 
+            class="hero-illustration-img" 
+            width="580" 
+            height="430"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3. Featured Games Section
+         ==================================================================== -->
+    <section id="featured" class="section-wrapper featured-section" aria-labelledby="featuredHeading">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-title-wrap">
+            <h2 id="featuredHeading" class="section-title">Games to get you started</h2>
+            <p class="section-subtitle">Simple controls. Maximum fun.</p>
+          </div>
+        </header>
+
+        <!-- Featured 3-Card Grid (Populated dynamically from GAMES catalog) -->
+        <div class="games-grid featured-grid" id="featuredGrid" role="region" aria-label="Featured Games">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. Trending Games Section
+         ==================================================================== -->
+    <section id="trending" class="section-wrapper trending-section" aria-labelledby="trendingHeading">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-title-wrap">
+            <h2 id="trendingHeading" class="section-title">What's trending</h2>
+            <p class="section-subtitle">Popular games worth checking out.</p>
+          </div>
+        </header>
+
+        <!-- Trending 4-Card Grid (Populated dynamically from GAMES catalog) -->
+        <div class="games-grid trending-grid" id="trendingGrid" role="region" aria-label="Trending Games">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         5. Explore Genres Section
+         ==================================================================== -->
+    <section id="genres" class="section-wrapper genres-section" aria-labelledby="genresHeading">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-title-wrap">
+            <h2 id="genresHeading" class="section-title">Explore genres</h2>
+            <p class="section-subtitle">Pick a vibe and start exploring.</p>
+          </div>
+        </header>
+
+        <!-- Interactive Genre Pills Filter -->
+        <div class="genres-pill-wrapper" id="genreFilterContainer" role="group" aria-label="Game Genre Filters">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. Discover Games Catalog Section
+         ==================================================================== -->
+    <section id="discover" class="section-wrapper discover-section" aria-labelledby="discoverHeading">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-title-wrap">
+            <h2 id="discoverHeading" class="section-title">Discover games</h2>
+            <p class="section-subtitle">Find your next favorite game.</p>
+          </div>
+        </header>
+
+        <!-- Catalog Toolbar: Search, Genre Select, and Sorting -->
+        <div class="catalog-toolbar">
+          <!-- Search Control -->
+          <div class="catalog-search-wrap">
+            <svg class="search-input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="gameSearch" 
+              class="catalog-search-input" 
+              placeholder="Search games, genres, keywords..." 
+              autocomplete="off" 
+              spellcheck="false"
+              aria-label="Search game catalog"
+            >
+            <button type="button" id="clearSearchBtn" class="btn-clear-search" aria-label="Clear search input">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Controls: Category Dropdown & Sorter -->
+          <div class="catalog-controls">
+            <label for="catalogGenreSelect" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Genre</label>
+            <select id="catalogGenreSelect" class="catalog-select" aria-label="Filter games by genre">
+              <!-- Populated by app.js -->
+            </select>
+
+            <label for="catalogSortSelect" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Sort By</label>
+            <select id="catalogSortSelect" class="catalog-select" aria-label="Sort catalog games">
+              <option value="featured">Featured First</option>
+              <option value="rating">Highest Rated</option>
+              <option value="az">A–Z (Alphabetical)</option>
+              <option value="newest">Recently Added</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Result Metadata Bar -->
+        <div class="catalog-meta-bar">
+          <span class="catalog-result-count" id="catalogResultCount">Showing 12 games</span>
+        </div>
+
+        <!-- Complete Games Catalog Grid -->
+        <div class="games-grid catalog-grid" id="catalogGrid" role="region" aria-label="Game Catalog Grid">
+          <!-- Populated by app.js -->
+        </div>
+
+        <!-- Empty State (Shown when search/filter has 0 matches) -->
+        <div class="catalog-empty-state" id="catalogEmptyState" role="status">
+          <div class="empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </div>
+          <h3 class="empty-title">No games found</h3>
+          <p class="empty-subtitle">Try another search or select a different category.</p>
+          <button type="button" id="resetFiltersBtn" class="btn btn-secondary">
+            <span>Reset All Filters</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         7. About Section
+         ==================================================================== -->
+    <section id="about" class="about-section" aria-labelledby="aboutHeading">
+      <div class="container">
+        <div class="about-intro">
+          <h2 id="aboutHeading" class="section-title">About Rob-Links</h2>
+          <p class="about-description">
+            Rob-Links is a simple gaming discovery hub built to help players explore browser games and jump directly into their favorite demos.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Card 1: Discover -->
+          <div class="about-card">
+            <div class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <h3 class="about-card-title">1. Discover</h3>
+            <p class="about-card-text">Explore games across different genres.</p>
+          </div>
+
+          <!-- Card 2: Play -->
+          <div class="about-card">
+            <div class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <h3 class="about-card-title">2. Play</h3>
+            <p class="about-card-text">Open supported browser demos directly.</p>
+          </div>
+
+          <!-- Card 3: Explore More -->
+          <div class="about-card">
+            <div class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="about-card-title">3. Explore More</h3>
+            <p class="about-card-text">Find new experiences through a simple gaming directory.</p>
+          </div>
+        </div>
+
+        <div class="about-disclaimer-box" role="note">
+          <p>Rob-Links is an independent gaming directory and is not affiliated with Roblox Corporation.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       8. Footer
+       ====================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="brand-link" aria-label="Rob-Links Footer Home">
+            <img src="assets/images/logo.svg" alt="ROB-LINKS" width="160" height="38">
+          </a>
+          <p class="footer-desc">
+            A fast, modern browser gaming directory connecting players with independent game demos across every genre.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Navigation</span>
+            <a href="#home" class="footer-link">Home</a>
+            <a href="#featured" class="footer-link">Featured Games</a>
+            <a href="#trending" class="footer-link">Trending</a>
+            <a href="#genres" class="footer-link">Explore Genres</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Directory</span>
+            <a href="#discover" class="footer-link">Game Catalog</a>
+            <a href="#about" class="footer-link">About Us</a>
+            <a href="404.html" class="footer-link">404 Page</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2026 Rob-Links. Independent gaming directory.
+        </p>
+        <p class="footer-legal">
+          Game names and descriptions are provided for discovery purposes. Rob-Links is not affiliated with Roblox Corporation or the developers of listed games.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button type="button" class="btn-back-to-top" id="backToTopBtn" aria-label="Back to top of page">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ======================================================================
+       9. Unconfigured Demo Dialog (Accessible Modal)
+       ====================================================================== -->
+  <div class="modal-overlay" id="unconfiguredModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalGameTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card">
+      <div class="modal-icon-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+      <h3 class="modal-title" id="modalGameTitle">Demo Coming Soon</h3>
+      <p class="modal-desc" id="modalGameDesc">
+        The external demo link for this game has not been configured yet. To play, configure a valid HTTPS URL in assets/js/app.js.
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="modalCloseBtn">
+          <span>Got it</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Script (Relative Path) -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

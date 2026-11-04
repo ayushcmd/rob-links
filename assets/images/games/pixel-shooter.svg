@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" fill="none">
+  <defs>
+    <linearGradient id="psBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1115"/>
+      <stop offset="50%" stop-color="#12080a"/>
+      <stop offset="100%" stop-color="#050203"/>
+    </linearGradient>
+    <radialGradient id="psFireGlow" cx="65%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#ff4d00" stop-opacity="0.45"/>
+      <stop offset="40%" stop-color="#ef4444" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#psBg)"/>
+  <circle cx="420" cy="160" r="220" fill="url(#psFireGlow)"/>
+
+  <!-- Pixel Grid Overlay in Background -->
+  <g fill="rgba(239, 68, 68, 0.08)">
+    <rect x="40" y="40" width="20" height="20"/>
+    <rect x="80" y="80" width="20" height="20"/>
+    <rect x="140" y="30" width="20" height="20"/>
+    <rect x="220" y="90" width="20" height="20"/>
+    <rect x="480" y="40" width="20" height="20"/>
+    <rect x="540" y="100" width="20" height="20"/>
+    <rect x="580" y="50" width="20" height="20"/>
+  </g>
+
+  <!-- Ground Pixel Blocks -->
+  <g fill="#261014" stroke="#e11d48" stroke-width="1" opacity="0.8">
+    <rect x="0" y="300" width="640" height="60"/>
+    <rect x="60" y="270" width="60" height="30"/>
+    <rect x="120" y="250" width="60" height="50"/>
+    <rect x="480" y="260" width="80" height="40"/>
+  </g>
+
+  <!-- Retro Soldier Silhouette with Gun (Left) -->
+  <g transform="translate(180, 160)">
+    <!-- Soldier Head & Helmet (Blocky/Pixel style) -->
+    <rect x="-16" y="-40" width="32" height="30" rx="3" fill="#ffffff" opacity="0.9"/>
+    <!-- Visor -->
+    <rect x="-6" y="-28" width="26" height="10" fill="#ff4d00"/>
+    <!-- Body Armor -->
+    <rect x="-22" y="-10" width="44" height="60" rx="4" fill="#3b1b22" stroke="#ff4d00" stroke-width="1.5"/>
+    <rect x="-14" y="0" width="28" height="35" fill="#e11d48"/>
+    <!-- Legs -->
+    <rect x="-18" y="50" width="16" height="50" fill="#1e1014"/>
+    <rect x="2" y="50" width="16" height="50" fill="#1e1014"/>
+    <!-- Heavy Laser Rifle -->
+    <rect x="10" y="5" width="85" height="16" rx="2" fill="#471822" stroke="#ff4d00" stroke-width="1.5"/>
+    <rect x="60" y="-3" width="25" height="8" fill="#e11d48"/>
+    <rect x="95" y="10" width="25" height="6" fill="#facc15"/>
+  </g>
+
+  <!-- Muzzle Flash & Laser Beams -->
+  <g transform="translate(300, 172)">
+    <!-- Laser Bolt -->
+    <line x1="0" y1="0" x2="320" y2="-20" stroke="#ff4d00" stroke-width="6" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="320" y2="-20" stroke="#fef08a" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Impact Burst -->
+    <polygon points="10,-12 25,0 10,12 18,0" fill="#facc15"/>
+  </g>
+
+  <!-- Crosshair Target Sight -->
+  <g transform="translate(480, 155)">
+    <circle cx="0" cy="0" r="32" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="8,6"/>
+    <line x1="-42" y1="0" x2="42" y2="0" stroke="#ef4444" stroke-width="1.5"/>
+    <line x1="0" y1="-42" x2="0" y2="42" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="4" fill="#ff4d00"/>
+  </g>
+
+  <!-- Title Badge Overlay -->
+  <g transform="translate(30, 275)">
+    <rect width="180" height="55" rx="8" fill="#18070b" fill-opacity="0.9" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="16" y="26" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#ffffff" letter-spacing="1">PIXEL SHOOTER</text>
+    <text x="16" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#f87171" letter-spacing="1.5">TACTICAL COMBAT</text>
+  </g>
+</svg>
