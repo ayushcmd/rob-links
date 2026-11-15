@@ -1,140 +1,142 @@
-# Rob-Links — Browser Game Discovery Directory
+# ROB-LINK HUB — V2
 
-> A modern, Roblox-inspired gaming discovery directory featuring **36 verified browser games, classic WebAssembly ports, and gaming projects**. Built with zero-dependency static web technologies for seamless GitHub Pages deployment.
+A static game discovery hub with a restrained origami identity, electric blue actions, red artwork accents, and lime play indicators. Built with HTML, CSS, and vanilla JavaScript; no build step, framework, server-side runtime, or production dependencies.
 
----
+## What is included
 
-## Overview
+- Home, Discover, Trending, Genres, and About as separate hash-routed views.
+- All 36 original game records, artwork, original URLs, requirements, logo, and favicon preserved.
+- Artwork-led game cards, an original SVG controller, folded navigation accents, and responsive layouts.
+- Discover search, combined genre/platform/availability/feature filters, removable chips, counts, five sorting modes, and grid/list views.
+- Global search with `/`, Escape, clear, keyboard focus handling, and empty states.
+- Editorial trending rankings; no fabricated player counts or growth statistics.
+- Eight primary genre tiles, additional categories in an expandable section, real counts, and prefiltered Discover links.
+- One internal player route for every Play Now action, original-source links, missing-URL states, optional embedded launch, and fullscreen controls.
+- Mobile navigation, collapsible filters, visible focus states, semantic controls, and reduced-motion support.
 
-**Rob-Links** is an organized directory of browser-playable games, reverse-engineered source ports, WebAssembly rebuilds, and retro emulations. Visitors can discover games across 15 genres, search instantly by title or keyword, view detailed platform requirements, and launch verified external destinations directly in a new browser tab.
-
----
-
-## Key Features
-
-- **36 Curated Game Entries**: Complete library covering FPS classics, open-world adventures, strategy RTS, simulations, sports, and sandbox worlds.
-- **Authentic Game-Specific Artwork**: 36 genuine cover images and screenshots matched to each game with automatic branded SVG fallbacks.
-- **Transparent Availability Statuses**:
-  - `Browser Game` (22 games) — Confirmed playable directly in modern web browsers.
-  - `Files Required` (4 games) — WebAssembly ports requiring original PC game assets.
-  - `Project Page` (10 games) — Dedicated research and development project portals.
-- **Rich Game Details Modal**: Displays full game descriptions, platform engines, asset requirements, external destination warnings, and direct launch buttons.
-- **Instant Search & Multi-Genre Filtering**: Real-time filtering across titles, descriptions, genres, platforms, and keywords, complete with keyboard shortcut (`/`).
-- **Curated Featured & Trending Sections**: Curated highlights showcasing the best WebAssembly conversions (Quake III Arena, CS 1.6, GTA Vice City, Chrono Divide Red Alert 2, Minecraft Classic, etc.).
-- **Roblox-Inspired Dark Gaming UI**: Premium `#111111` dark surface palette, `#335fff` electric blue accents, responsive card grids, and smooth interactions.
-- **100% Static & Lightweight**: Zero build step, zero npm dependencies, and relative asset paths optimized for GitHub Pages (`https://USERNAME.github.io/rob-links/`).
-
----
-
-## 36 Game Directory Roster
-
-| # | Game Title | Category | Availability | Platform / Port | Verified Destination |
-|---|------------|----------|--------------|-----------------|----------------------|
-| 1 | Call of Duty: Black Ops Zombies | FPS / Zombies | Project Page | WebAssembly / WebGL | [portedgames.com](https://portedgames.com/black-ops-zombies/) |
-| 2 | Quake III Arena | FPS / Multiplayer | Browser Game | WebAssembly (ioquake3) | [q3.pieter.com](https://q3.pieter.com/) |
-| 3 | Quake II | FPS / Action | Browser Game | WebAssembly (Quake II) | [q2.pieter.com](https://q2.pieter.com/) |
-| 4 | Quake | FPS / Action | Browser Game | WebAssembly (QuakeWorld) | [q1.pieter.com](https://q1.pieter.com/) |
-| 5 | Doom | FPS / Classic | Browser Game | WebAssembly (Wasm Doom) | [portedgames.com](https://portedgames.com/doom-browser/) |
-| 6 | Return to Castle Wolfenstein | FPS / Action | Browser Game | WebAssembly (RTCW) | [rtcw.pieter.com](https://rtcw.pieter.com/) |
-| 7 | Urban Terror | FPS / Multiplayer | Browser Game | WebAssembly (ioquake3) | [ut.pieter.com](https://ut.pieter.com/) |
-| 8 | Half-Life | FPS / Action | Files Required | WebAssembly (WebXash) | [pixelsuft.github.io](https://pixelsuft.github.io/hl/) |
-| 9 | Counter-Strike 1.6 | FPS / Multiplayer | Browser Game | WebAssembly (WebXash) | [x8bitrain.github.io](https://x8bitrain.github.io/webXash/) |
-| 10 | Counter-Strike Surf | FPS / Action | Browser Game | WebGL (Three.js) | [surfd.net](https://surfd.net/) |
-| 11 | Project I.G.I. | FPS / Stealth | Browser Game | WebAssembly / WebGL | [playigi.com](https://playigi.com/) |
-| 12 | Halo: Combat Evolved | FPS / Sci-Fi | Project Page | WebGL (Combat Lab) | [mitchellhynes.com](https://mitchellhynes.com/combat-lab/) |
-| 13 | Grand Theft Auto III | Open World | Files Required | WebAssembly (re3) | [portedgames.com](https://portedgames.com/gta-3/) |
-| 14 | Grand Theft Auto: Vice City | Open World | Files Required | WebAssembly (reVC) | [portedgames.com](https://portedgames.com/quenq-vice-city/) |
-| 15 | Grand Theft Auto 2 | Open World | Project Page | Web Portal / Emulation | [bitrunlog.net](https://bitrunlog.net/) |
-| 16 | Grand Theft Auto V | Open World | Project Page | Cloud Guide | [bitrunlog.net](https://bitrunlog.net/) |
-| 17 | Need for Speed: Underground 2 | Racing / Tuner | Project Page | WebAssembly Project | [portedgames.com](https://portedgames.com/need-for-speed-underground-2-browser/) |
-| 18 | Road Rash | Racing / Combat | Browser Game | Web Emulation | [portedgames.com](https://portedgames.com/road-rash-browser/) |
-| 19 | Skate 3 | Sports / Skate | Project Page | Project Hub | [portedgames.com](https://portedgames.com/skate-3/) |
-| 20 | Tomb Raider | Adventure | Browser Game | WebGL (OpenLara) | [xproger.github.io](https://xproger.github.io/OpenLara/) |
-| 21 | LEGO Island | Adventure | Browser Game | WebGL (Isle Pizza) | [isle.pizza](https://isle.pizza/) |
-| 22 | The Simpsons: Hit & Run | Open World | Files Required | WebAssembly | [portedgames.com](https://portedgames.com/simpsons-hit-and-run/) |
-| 23 | Command & Conquer: Red Alert 2 | Strategy / RTS | Browser Game | WebAssembly (Chrono Divide) | [chronodivide.com](https://chronodivide.com/) |
-| 24 | Command & Conquer: Generals Zero Hour | Strategy / RTS | Project Page | WebAssembly Project | [portedgames.com](https://portedgames.com/cnc-generals-zero-hour/) |
-| 25 | OpenTTD | Simulation | Browser Game | WebAssembly | [portedgames.com](https://portedgames.com/openttd-browser/) |
-| 26 | SimCity Classic | Simulation | Browser Game | HTML5 / JavaScript | [portedgames.com](https://portedgames.com/simcity-classic-browser/) |
-| 27 | Cricket 07 | Sports | Browser Game | WebAssembly | [cricket07.dhaiwat.com](https://cricket07.dhaiwat.com/) |
-| 28 | PES 6 | Sports / Football | Browser Game | WebAssembly Emulation | [pes6.optijuegos.net](https://pes6.optijuegos.net/) |
-| 29 | Minecraft Classic | Sandbox | Browser Game | JavaScript / WebGL | [classic.minecraft.net](https://classic.minecraft.net/) |
-| 30 | Eaglercraft | Sandbox / Survival | Browser Game | TeaVM / WebGL | [eaglercraft.com](https://eaglercraft.com/) |
-| 31 | Crash Bash Online | Action / Party | Browser Game | Web Emulation | [portedgames.com](https://portedgames.com/crash-bash-online/) |
-| 32 | Diablo Web | RPG / Action | Browser Game | WebAssembly (d07riv) | [d07riv.github.io](https://d07riv.github.io/diabloweb/) |
-| 33 | Resident Evil Outbreak | Horror / Survival | Project Page | Web Portal | [outbreakweb.com](https://outbreakweb.com/) |
-| 34 | WipEout | Racing / Anti-Grav | Browser Game | WebAssembly (WipEout Rewrite) | [portedgames.com](https://portedgames.com/wipeout/) |
-| 35 | Lugaru | Action / Brawler | Browser Game | WebAssembly (Lugaru HD) | [portedgames.com](https://portedgames.com/lugaru-browser/) |
-| 36 | Freedoom | FPS / Open Source | Project Page | Open Source Assets | [freedoom.github.io](https://freedoom.github.io/) |
-
----
-
-## Project Structure
+## Files
 
 ```text
-rob-links/
-│
-├── index.html                  # Main gaming discovery directory
-├── 404.html                    # Themed 404 fallback page
-├── README.md                   # Directory documentation & deployment guide
-├── .gitignore                  # Git exclusions
-│
-└── assets/
-    ├── css/
-    │   └── style.css           # Roblox dark theme, card grids & modal styling
-    │
-    ├── js/
-    │   ├── games-data.js       # Central 36-game structured catalog
-    │   └── app.js              # Live search, genre filtering, modal & navigation
-    │
-    └── images/
-        ├── logo.svg            # Custom ROB-LINKS brand logo
-        ├── favicon.svg         # Square browser tab icon
-        ├── hero-illustration.svg # Cyber gaming platform artwork
-        └── games/              # 36 authentic game artwork files + SVG backups
+index.html                         Application shell and search dialog
+404.html                           Standalone error page
+assets/css/style.css               Design system, layouts, and responsive styling
+assets/js/games-data.js             Single source of game information and launch settings
+assets/js/catalog.js                Search, filtering, sorting, and URL validation
+assets/js/app.js                    View templates, navigation, search UI, and player
+assets/images/origami-controller.svg New lightweight hero illustration
+assets/images/logo.svg             Original logo (unchanged)
+assets/images/favicon.svg          Original favicon (unchanged)
+assets/images/hero-illustration.svg Original illustration (retained)
+assets/images/games/                Original artwork (unchanged)
+tests/regression.cjs                Optional dependency-free development checks
 ```
 
----
+## Run locally
 
-## Local Usage
+Open `index.html` in a modern browser. For a localhost preview, run from the repository directory:
 
-The website runs directly in any modern browser without npm install or build commands:
-
-```bash
-# Clone the repository
-git clone https://github.com/USERNAME/rob-links.git
-cd rob-links
-
-# Open index.html directly
-# Or launch a local test server:
-python -m http.server 8000
+```sh
+python -m http.server 8000 --bind 127.0.0.1
 ```
-Visit `http://localhost:8000` in your web browser.
 
----
+Open `http://127.0.0.1:8000`. Python is only an optional preview tool. Node is only needed if running the optional checks; neither is needed by the website or GitHub Pages.
 
-## GitHub Pages Deployment
+## Game records and launch URLs
 
-1. Commit and push your changes:
-   ```bash
-   git add .
-   git commit -m "Update Rob-Links with 36 verified browser games and authentic artwork"
-   git push origin main
-   ```
-2. Open your repository on **GitHub** (`https://github.com/USERNAME/rob-links`).
-3. Click **Settings** → **Pages** (in the left sidebar).
-4. Under **Build and deployment**:
-   - **Source**: `Deploy from a branch`
-   - **Branch**: `main`
-   - **Folder**: `/ (root)`
-5. Click **Save**.
-6. Your live directory will be available at:
-   ```text
-   https://USERNAME.github.io/rob-links/
-   ```
+Edit the corresponding record in `assets/js/games-data.js`. Keep IDs unique and stable. All views use this one catalog.
 
----
+```javascript
+{
+  id: "my-game",
+  slug: "my-game",
+  title: "My Game",
+  genres: ["Adventure"],
+  category: "Adventure",
+  description: "An accurate description of the experience.",
+  image: "assets/images/games/my-game.jpg",
+  launchUrl: null,
+  embedAllowed: null,
+  trendingRank: null,
+  gameUrl: null,
+  platform: "WebGL",
+  availability: "unavailable",
+  availabilityLabel: "URL pending",
+  buttonText: "Play Now",
+  homePick: false,
+  trending: false,
+  keywords: ["adventure"],
+  requirements: "Describe any real requirements here.",
+  sourceUrl: null
+}
+```
 
-## Disclaimer
+- `launchUrl`: direct HTTPS runtime URL, or `null` if not configured. Change this field to update the player; HTML edits are unnecessary.
+- `sourceUrl`: original project, official information, or source destination. Kept separate from the runtime URL.
+- `gameUrl`: retained original URL for reference; V2 does not use it as an implicit fallback launcher.
+- `embedAllowed`: `null` means unknown and offers an explicit “Try in ROB-LINK” action; `false` explains embedding is unavailable; `true` allows automatic embedding for browser/demo listings after the owner has verified compatibility. File-dependent listings always require an explicit start.
+- `availability`: `browser`, `demo`, `files-required`, `project`, or `unavailable`. A browser listing without a safe launch URL displays URL pending. Project and file-dependent records retain their explanatory status.
+- `trendingRank`: unique positive integer for editorial ordering; `null` excludes it from the ranked list. Keep at least five ranked records for the intended layout.
+- `trending`: selects additional entries for More to Explore.
 
-Rob-Links is an independent discovery directory. Rob-Links does not host game executables or claim ownership of any listed games. All trademarks, titles, and assets belong to their respective developers and publishers. Games labeled "Files Required" require original game assets owned by the player. Rob-Links is not affiliated with Roblox Corporation.
+Existing browser URLs were copied to `launchUrl`; project and file-dependent records keep their original URLs but start with `launchUrl: null`. No external runtime has been newly certified as working or licensed. Verify a destination before enabling automatic embedding.
+
+Home's four curated IDs are near `home()` in `app.js`. Genre names and counts are derived from `genres` in each game record. Platform filters are derived from actual platform strings. Feature filters use explicit genre metadata for Multiplayer/Open World and existing singleplayer descriptions; no unsupported features are invented. To add a new genre, add it to the appropriate records; it appears in Discover and the additional genre section automatically.
+
+## Search and navigation
+
+Examples:
+
+```text
+index.html#discover
+index.html#discover?genre=FPS&platform=WebAssembly&q=quake&sort=az
+index.html#genres?genre=Racing
+index.html#play?game=gta-vc
+```
+
+Filters match any selection within a group and all selected groups together. Search matches every entered word across title, description, genres, keywords, and platform. Hash routes support direct opening, refresh, and browser back navigation without server rewriting. Search/filter/sort edits replace the current history entry to avoid a history entry per keystroke; genre navigation creates history entries. Back to Games retains the current browsing filters when entering the player.
+
+## Player limitations
+
+Third-party sites may reject iframes with CSP or X-Frame-Options. ROB-LINK does not bypass these headers, proxy content, or automatically open external windows. A frame load is never presented as proof that gameplay works. The source fallback remains available throughout the session. The sandbox allows scripts, same-origin runtime behavior, forms, and pointer lock, but not top-level navigation or popups. Some games may need a separate tab for storage, authentication, controls, or other browser capabilities.
+
+Fullscreen depends on browser support and user activation. If unavailable, the player displays a fallback message. Clipboard copying may require HTTPS or localhost. Original files must be supplied by their owner where required. The catalog's descriptions were preserved and are not live availability guarantees.
+
+## Contact details awaiting owner confirmation
+
+The About page deliberately preserves:
+
+- Email: `ayushcmd@outlookk.com` 
+- Buy Me a Coffee: `ayushcmd` 
+- LinkedIn: `ayushcmd` 
+- GitHub: `https://github.com/ayushcmd`.
+
+Email copy and mailto use the supplied spelling. LinkedIn and coffee remain plain handles until their destinations are confirmed. No silent corrections were made.
+
+## Validation
+
+Optional developer checks:
+
+```sh
+node --check assets/js/app.js
+node tests/regression.cjs
+```
+
+The regression suite checks data/artwork preservation against Git HEAD, search, combined filters, sorting, URL validation, routes, internal links, player states, and escaped rendering. It uses a lightweight DOM contract harness, not a real browser layout engine. The preservation baseline is the current committed catalog; revise baseline expectations deliberately when adding games.
+
+During implementation, all 17 checks passed before the visual polish pass. Browser interactions covered combined filtering/search/sorting, internal player navigation, empty results, and embedded-frame controls. A focused visual review covered all five sections plus mobile Home, correcting mobile hero composition and ranked-thumbnail sizing. Browser fullscreen completion and third-party gameplay were not verified. No claim is made that all external games work.
+
+## GitHub Pages
+
+After reviewing the local changes and approving publication:
+
+1. Commit and push the intended files to `ayushcmd/rob-links`.
+2. In repository Settings → Pages, choose deployment from the desired branch and `/ (root)`.
+3. The site is served at `https://ayushcmd.github.io/rob-links/`.
+
+There is no build command. Asset paths are relative to the repository root. The standalone 404 page explicitly returns to `/rob-links/index.html#discover` on the configured GitHub Pages host, including from nested invalid paths. Update that 404 host/base-path check if moving the site to another repository.
+
+No changes were pushed or published during this implementation.
+
+## Credits
+
+ROB-LINK is an independent discovery hub. Titles, trademarks, and artwork belong to their respective owners; inclusion does not imply association. ROB-LINK does not claim to host or distribute the listed games.
